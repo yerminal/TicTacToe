@@ -39,7 +39,7 @@ always @(posedge clk_i) begin
 		end
 		else if (loop_counter == MAX_LOOP_COUNT-2) begin
 			serial_data_o <= sft_reg[SELECT_SIZE-1:0];
-			sft_reg[(ROM_DATA_WIDTH-1)-SELECT_SIZE:0] <= sft_reg[(ROM_DATA_WIDTH-1):SELECT_SIZE];
+			// sft_reg[(ROM_DATA_WIDTH-1)-SELECT_SIZE:0] <= sft_reg[(ROM_DATA_WIDTH-1):SELECT_SIZE];
 			buffer <= sft_reg[2*SELECT_SIZE-1:SELECT_SIZE];
 		end
 		else if (loop_counter == MAX_LOOP_COUNT-1) begin
