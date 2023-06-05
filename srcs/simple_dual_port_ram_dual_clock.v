@@ -14,6 +14,10 @@ module simple_dual_port_ram_dual_clock
 	// Declare the RAM variable
 	reg [DATA_WIDTH-1:0] ram[2**ADDR_WIDTH-1:0];
 	
+	initial begin
+		$readmemh("simple_dual_port_ram_dual_clock_init.mem", ram);
+	end
+	
 	always @ (posedge write_clock_i)
 	begin
 		// Write
