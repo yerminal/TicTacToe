@@ -6,10 +6,10 @@ module vga_sync(
     output reg vsync_o,
     output reg inActiveArea_o,
 	output reg inActiveAreaMUX_o,
-	// output reg inActiveH_o,
-	output [4:0] v_cntr_mod32_o,
+	output reg screen_start_o,
+	output [4:0] v_cntr_mod32_o
 	// TEST LINES
-	output clk_hsync
+	// output clk_hsync
     );
 
 localparam H_ACTIVE       	= 640; // horizontal display area
@@ -40,26 +40,26 @@ localparam V_MAX           	= V_ACTIVE + V_BACK_PORCH + V_FRONT_PORCH + V_SYNC -
 localparam H_CNTR_SIZE   	= $clog2(H_MAX); // log2|H_MAX|
 localparam V_CNTR_SIZE   	= $clog2(V_MAX); // log2|V_MAX|
 
-reg [H_CNTR_SIZE-1:0] H_cntr = 0;
-reg [V_CNTR_SIZE-1:0] V_cntr = 0;
+reg [H_CNTR_SIZE-1:0] H_cntr = H_ACTIVE;
+reg [V_CNTR_SIZE-1:0] V_cntr = V_MAX;
 
-assign v_cntr_mod32_o = (V_cntr % 32);
+assign v_cntr_mod32_o = V_cntr[4:0];
 
-reg clk_H_cntr = 0;
-assign clk_hsync = clk_H_cntr;
+// reg clk_H_cntr = 0;
+// assign clk_hsync = clk_H_cntr;
 
 always @(posedge clk_i) begin
 	if (rst_i) begin
 		H_cntr <= 0;
-		clk_H_cntr <= 0;
+		// clk_H_cntr <= 0;
 	end
 	else if (H_cntr == H_MAX) begin
 		H_cntr <= 0;
-		clk_H_cntr <= ~clk_H_cntr;
+		// clk_H_cntr <= ~clk_H_cntr;
 	end
 	else begin
 		H_cntr <= H_cntr + 1;
-		clk_H_cntr <= ~clk_H_cntr;
+		// clk_H_cntr <= ~clk_H_cntr;
 	end
 end
 
@@ -88,13 +88,28 @@ always @(posedge clk_i) begin
 // FOR ALLAH'S SAKE, MAKE IN_ACTIVE_AREA MATCH exactly WITH THE HSYNC COUNTER SO THAT MUX WORKS PROPERLY.
 	// inActiveH_o <= ((H_cntr < H_ACTIVE-2) || (H_cntr >= H_MAX - 1));
 	
-	inActiveArea_o <= 	((H_cntr < H_ACTIVE-2) || (H_cntr >= H_MAX - 1)) 
+	inActiveArea_o <= 	((H_cntr < H_ACTIVE-3) || (H_cntr >= H_MAX - 2)) 
 						&& 
-						((V_cntr < V_ACTIVE) || ((V_cntr == V_MAX) && (H_cntr >= H_MAX - 1)))
+						((V_cntr < V_ACTIVE) || ((V_cntr == V_MAX) && (H_cntr >= H_MAX - 2)))
 						&& 
-						~((V_cntr == V_ACTIVE-1) && (H_cntr >= H_MAX - 1));
+						~((V_cntr == V_ACTIVE-1) && (H_cntr >= H_MAX - 2));
 	
-	inActiveAreaMUX_o <= ((H_cntr < H_ACTIVE) && (V_cntr < V_ACTIVE));
+	inActiveAreaMUX_o <= 	(((H_cntr < H_ACTIVE) || (H_cntr == H_MAX)) && (V_cntr < V_ACTIVE-1))
+							||
+							((H_cntr < H_ACTIVE) && (V_cntr == V_ACTIVE-1))
+							||
+							((H_cntr == H_MAX) && (V_cntr == V_MAX));
+end
+
+always @(posedge clk_i) begin
+	if (V_cntr >= V_ACTIVE) begin
+		if ((V_cntr == V_MAX) && (H_cntr >= H_MAX-2))
+			screen_start_o <= 0;
+		else
+			screen_start_o <= 1;
+	end
+	else
+		screen_start_o <= 0;
 end
 
 endmodule

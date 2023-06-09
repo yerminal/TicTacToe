@@ -16,14 +16,18 @@ localparam PERIOD = HALF_PERIOD*2;
 
 
 // INPUT DATA
-reg clk_ref = 0;
-reg clk_pixel = 0;
+reg clk_ref = 1;
+
 reg rst = 0;
 reg [SELECT_SIZE-1:0] select;
 
 // INTERNAL DATA
-wire inActiveArea;
 wire clk_serial;
+wire clk_pixel;
+wire inActiveArea;
+wire inActiveAreaMUX;
+wire screen_start;
+wire [4:0] v_cntr_mod32;
 	// ram
 wire [(RAM_ADDR_WIDTH-1):0] ram_read_addr;
 wire [(RAM_DATA_WIDTH-1):0] ram_read_data;
@@ -38,7 +42,7 @@ wire [OUT_RGB_SIZE-1:0] red;
 wire [OUT_RGB_SIZE-1:0] green;
 wire [OUT_RGB_SIZE-1:0] blue;
 wire [(SELECT_SIZE-1):0] serial_data;
-wire [4:0] v_cntr_mod32;
+
 
 pixel_drawer
 #(	.RAM_DATA_WIDTH(RAM_DATA_WIDTH),
@@ -52,6 +56,8 @@ p1
 	.clk_i			(clk_pixel),
 	.clk_serial		(clk_serial),
 	.rst_i			(rst),
+	.inActiveArea_i	(inActiveArea),
+	.screen_start_i (screen_start),
 	.ram_data_i		(ram_read_data),
 	.rom_data_i		(rom_data),
 	.v_cntr_mod32_i	(v_cntr_mod32),
@@ -67,8 +73,8 @@ vga_sync sync0(
     .vsync_o		(Vsync),
     .inActiveArea_o	(inActiveArea),
 	.inActiveAreaMUX_o(inActiveAreaMUX),
-	.v_cntr_mod32_o(v_cntr_mod32),
-	.clk_hsync(clk_hsync)
+	.screen_start_o	(screen_start),
+	.v_cntr_mod32_o(v_cntr_mod32)
     );
 
 vga_rgb_mux
@@ -95,7 +101,18 @@ d1
 	.rst_i(rst),
 	.clk_o(clk_serial)
 );
-	
+
+clock_divider
+#(	.CLK_REF_FREQ(100_000_000),
+	.CLK_OUT_FREQ(1_562_500)
+)
+d2
+(
+	.clk_i(clk_ref),
+	.rst_i(btnC),
+	.clk_o(clk_pixel)
+);
+
 simple_dual_port_ram_dual_clock
 #(	.DATA_WIDTH(RAM_DATA_WIDTH), 
 	.ADDR_WIDTH(RAM_ADDR_WIDTH)
@@ -122,7 +139,6 @@ rom1
 	.q(rom_data)
 );
 
-always #(HALF_PERIOD*10) clk_pixel=~clk_pixel;
 always #HALF_PERIOD clk_ref=~clk_ref;
 
 integer i = 0;

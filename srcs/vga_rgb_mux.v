@@ -23,31 +23,31 @@ always @(*) begin
 	else if (inActiveArea_i) begin
 		case(select_i)
 			// BLACK
-			0		: 	begin 
+			'b000	: 	begin 
 						red_o 	<= 'h0;
 						green_o <= 'h0;
 						blue_o 	<= 'h0;
 						end        
 			// WHITE               
-			1		: 	begin      
+			'b111	: 	begin      
 						red_o 	<= 'hF;
 						green_o <= 'hF;
 						blue_o 	<= 'hF;
 						end        
 			// RED                 
-			2		: 	begin      
+			'b100	: 	begin      
 						red_o 	<= 'hF;
 						green_o <= 'h0;
 						blue_o 	<= 'h0;
 						end        
 			// GREEN               
-			3		: 	begin      
+			'b010	: 	begin      
 						red_o 	<= 'h0;
 						green_o <= 'hF;
 						blue_o 	<= 'h0;
 						end        
 			// BLUE                
-			4		: 	begin      
+			'b001	: 	begin      
 						red_o 	<= 'h0;
 						green_o <= 'h0;
 						blue_o 	<= 'hF;
