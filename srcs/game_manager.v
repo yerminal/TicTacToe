@@ -18,11 +18,8 @@ reg [COUNTR_SEC_SIZE-1:0] counter_sec_time = 0;
 always @(posedge clk_i) begin
 	if (start_count_i) begin
 		if (counter == CLK_INPUT_FREQ-1) begin
-				if (counter_sec_time == WAIT_FOR_SECS) begin
+				if (counter_sec_time == WAIT_FOR_SECS)
 					count_done_o <= 1;
-					counter <= 0;
-					counter_sec_time <= 0;
-				end
 				else
 					counter_sec_time <= counter_sec_time + 1;
 				counter <= 0;
@@ -1146,48 +1143,6 @@ begin
 					userAdressLine=0;
 					userAdressColumn=0;
 			end
-		end
-		
-		//locate the squares at the 6th and 12th turns
-		if((turnNumber==13||turnNumber==12) && whosTurn==0 &&isValidCounter==8 && isFinished==0) begin
-			boardSquare[firstSquareTriangle]=1;
-			boardTriangle[firstSquareTriangle]=0;
-			
-			
-			write_addr[i]=20*(firstSquareTriangle/10)+25+(firstSquareTriangle%10);
-			data[i]=BOARD_REDFIL;
-			i=i+1;
-			STATE=S_WRITE_DATA;
-		end
-		else if((turnNumber==13||turnNumber==12) && whosTurn==1&&isValidCounter==8 && isFinished==0) begin
-			boardSquare[firstSquareCircle]=1;
-			boardCircle[firstSquareCircle]=0;
-			
-			
-			write_addr[i]=20*(firstSquareCircle/10)+25+(firstSquareCircle%10);
-			data[i]=BOARD_REDFIL;
-			i=i+1;
-			STATE=S_WRITE_DATA;
-		end
-		else if((turnNumber==25||turnNumber==24) && whosTurn==0&&isValidCounter==8 && isFinished==0) begin
-			boardSquare[secondSquareTriangle]=1;
-			boardTriangle[secondSquareTriangle]=0;
-			
-			
-			write_addr[i]=20*(firstSquareTriangle/10)+25+(firstSquareTriangle%10);
-			data[i]=BOARD_REDFIL;
-			i=i+1;
-			STATE=S_WRITE_DATA;
-		end
-		else if((turnNumber==25||turnNumber==24) && whosTurn==1&&isValidCounter==8 && isFinished==0) begin
-			boardSquare[secondSquareCircle]=1;
-			boardCircle[secondSquareCircle]=0;
-			
-			
-			write_addr[i]=20*(firstSquareCircle/10)+25+(firstSquareCircle%10);
-			data[i]=BOARD_REDFIL;
-			i=i+1;
-			STATE=S_WRITE_DATA;
 		end
 
 		if(isFinished) begin
