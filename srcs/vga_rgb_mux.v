@@ -2,7 +2,7 @@
 
 module vga_rgb_mux
 #(	parameter SELECT_SIZE = 3,
-	parameter OUT_RGB_SIZE = 4
+	parameter OUT_RGB_SIZE = 8
 )
 (
 	input rst_i,
@@ -24,39 +24,39 @@ always @(*) begin
 		case(select_i)
 			// BLACK
 			'b000	: 	begin 
-						red_o 	<= 'h0;
-						green_o <= 'h0;
-						blue_o 	<= 'h0;
+						red_o 	<= 'h00;
+						green_o <= 'h00;
+						blue_o 	<= 'h00;
 						end        
 			// WHITE               
 			'b111	: 	begin      
-						red_o 	<= 'hF;
-						green_o <= 'hF;
-						blue_o 	<= 'hF;
+						red_o 	<= 'hFF;
+						green_o <= 'hFF;
+						blue_o 	<= 'hFF;
 						end        
 			// RED                 
 			'b100	: 	begin      
-						red_o 	<= 'hF;
-						green_o <= 'h0;
-						blue_o 	<= 'h0;
+						red_o 	<= 'hFF;
+						green_o <= 'h00;
+						blue_o 	<= 'h00;
 						end        
 			// GREEN               
 			'b010	: 	begin      
-						red_o 	<= 'h0;
-						green_o <= 'hF;
-						blue_o 	<= 'h0;
+						red_o 	<= 'h00;
+						green_o <= 'hFF;
+						blue_o 	<= 'h00;
 						end        
 			// BLUE                
 			'b001	: 	begin      
-						red_o 	<= 'h0;
-						green_o <= 'h0;
-						blue_o 	<= 'hF;
+						red_o 	<= 'h00;
+						green_o <= 'h00;
+						blue_o 	<= 'hFF;
 						end        
 								   
 			default	:	begin      
-						red_o 	<= 'h0;
-					    green_o <= 'h0;
-                        blue_o 	<= 'h0;
+						red_o 	<= 'h00;
+					    green_o <= 'h00;
+                        blue_o 	<= 'h00;
 						end
 		endcase
 	end

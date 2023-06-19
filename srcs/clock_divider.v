@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module clock_divider
-#(	parameter CLK_REF_FREQ = 100_000_000,
+#(	parameter CLK_REF_FREQ = 50_000_000,
 	parameter CLK_OUT_FREQ = 25_000_000
 )
 (

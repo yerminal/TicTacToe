@@ -14,7 +14,7 @@ module single_port_rom
 
 	initial
 	begin
-		$readmemb("single_port_rom_init.mem", rom);
+		$readmemb("single_port_rom_init.txt", rom);
 	end
 
 	always @ (posedge clk)
