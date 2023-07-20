@@ -2,7 +2,7 @@
 - This is a Tic-Tac-Toe game that can be played with a DE1-SoC board.
 - The details about the project are in [TicTacToe_EE314_Project_Report.pdf](https://github.com/yerminal/TicTacToe/blob/main/docs/TicTacToe_EE314_Project_Report.pdf).
 ## Manual
-- You will be using three buttons: ![logic-0, logic-1, and activity button](https://github.com/yerminal/TicTacToe/blob/main/docs/control_buttons.png).
+- You will be using three buttons: logic-0, logic-1, and activity button. ![control_buttons.png](https://github.com/yerminal/TicTacToe/blob/main/docs/control_buttons.png)
 - At every turn, the player in turn will enter the coordinates sequentially using the logic-0 and logic-1 buttons. Then, the player
 should press the activity button.
 - However, the coordinates should be typed in reverse. That is, the enter order is in LSB (least significant bit) to MSB (most significant bit).
