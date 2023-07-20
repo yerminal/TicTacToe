@@ -1,5 +1,5 @@
 Assembler report for top
-Mon Jun 19 11:50:04 2023
+Wed Jun 21 13:15:58 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jun 19 11:50:04 2023 ;
+; Assembler Status      ; Successful - Wed Jun 21 13:15:58 2023 ;
 ; Revision Name         ; top                                   ;
 ; Top-level Entity Name ; top                                   ;
 ; Family                ; Cyclone V                             ;
@@ -92,8 +92,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                   ;
 +----------------+---------------------------------------------------------------------------+
 ; Device         ; 5CSEMA5F31C6                                                              ;
-; JTAG usercode  ; 0x033E54E6                                                                ;
-; Checksum       ; 0x033E54E6                                                                ;
+; JTAG usercode  ; 0x0400901B                                                                ;
+; Checksum       ; 0x0400901B                                                                ;
 +----------------+---------------------------------------------------------------------------+
 
 
@@ -103,13 +103,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon Jun 19 11:49:44 2023
+    Info: Processing started: Wed Jun 21 13:15:36 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off TicTacToe -c top
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4935 megabytes
-    Info: Processing ended: Mon Jun 19 11:50:04 2023
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 4984 megabytes
+    Info: Processing ended: Wed Jun 21 13:15:59 2023
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:20
 
 

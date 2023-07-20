@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for top
-Mon Jun 19 11:51:59 2023
+Wed Jun 21 13:18:39 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -138,16 +138,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
 
 
-+--------------------------------------------------------------------+
-; Slow 1100mV 85C Model Fmax Summary                                 ;
-+------------+-----------------+------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                   ; Note ;
-+------------+-----------------+------------------------------+------+
-; 27.19 MHz  ; 27.19 MHz       ; clock_divider_negedge:d3|clk ;      ;
-; 196.58 MHz ; 196.58 MHz      ; clock_divider:d2|clk         ;      ;
-; 217.68 MHz ; 217.68 MHz      ; clock_divider:d1|clk         ;      ;
-; 367.92 MHz ; 367.92 MHz      ; CLOCK_50                     ;      ;
-+------------+-----------------+------------------------------+------+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary                                                                                 ;
++------------+-----------------+------------------------------+------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                   ; Note                                                 ;
++------------+-----------------+------------------------------+------------------------------------------------------+
+; 21.83 MHz  ; 21.83 MHz       ; clock_divider_negedge:d3|clk ;                                                      ;
+; 188.64 MHz ; 188.64 MHz      ; clock_divider:d2|clk         ;                                                      ;
+; 247.34 MHz ; 247.34 MHz      ; clock_divider:d1|clk         ;                                                      ;
+; 397.46 MHz ; 365.5 MHz       ; CLOCK_50                     ; limit due to low minimum pulse width violation (tcl) ;
++------------+-----------------+------------------------------+------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -162,10 +162,10 @@ HTML report is unavailable in plain text report export.
 +------------------------------+---------+---------------+
 ; Clock                        ; Slack   ; End Point TNS ;
 +------------------------------+---------+---------------+
-; clock_divider_negedge:d3|clk ; -35.772 ; -22456.465    ;
-; clock_divider:d2|clk         ; -5.105  ; -2174.307     ;
-; clock_divider:d1|clk         ; -5.102  ; -569.841      ;
-; CLOCK_50                     ; -1.718  ; -16.175       ;
+; clock_divider_negedge:d3|clk ; -44.799 ; -32278.046    ;
+; clock_divider:d2|clk         ; -5.371  ; -2358.841     ;
+; clock_divider:d1|clk         ; -5.284  ; -535.338      ;
+; CLOCK_50                     ; -1.516  ; -15.192       ;
 +------------------------------+---------+---------------+
 
 
@@ -174,10 +174,10 @@ HTML report is unavailable in plain text report export.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -1.470 ; -4.307        ;
-; clock_divider:d1|clk         ; -0.813 ; -67.364       ;
-; clock_divider:d2|clk         ; -0.577 ; -76.923       ;
-; clock_divider_negedge:d3|clk ; 0.214  ; 0.000         ;
+; CLOCK_50                     ; -1.809 ; -4.821        ;
+; clock_divider:d1|clk         ; -1.021 ; -66.376       ;
+; clock_divider:d2|clk         ; -0.695 ; -72.883       ;
+; clock_divider_negedge:d3|clk ; 0.213  ; 0.000         ;
 +------------------------------+--------+---------------+
 
 
@@ -198,10 +198,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; clock_divider:d2|clk         ; -2.174 ; -2159.740     ;
-; clock_divider_negedge:d3|clk ; -2.174 ; -537.743      ;
-; CLOCK_50                     ; -0.832 ; -11.876       ;
-; clock_divider:d1|clk         ; -0.394 ; -80.548       ;
+; clock_divider:d2|clk         ; -2.174 ; -2141.779     ;
+; clock_divider_negedge:d3|clk ; -2.174 ; -611.907      ;
+; CLOCK_50                     ; -0.868 ; -12.032       ;
+; clock_divider:d1|clk         ; -0.394 ; -74.142       ;
 +------------------------------+--------+---------------+
 
 
@@ -210,13 +210,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; 3.083  ; 4.789  ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; 3.470  ; 5.157  ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 2.427  ; 4.039  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 4.958  ; 7.438  ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 21.028 ; 22.093 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 22.144 ; 23.078 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 23.009 ; 24.184 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; 6.545  ; 9.511  ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; 5.229  ; 7.624  ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 4.536  ; 6.770  ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; 6.221  ; 8.758  ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 24.449 ; 25.751 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 23.061 ; 24.833 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 22.417 ; 23.110 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -225,13 +225,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; -1.348 ; -2.702 ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; -1.118 ; -2.596 ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 2.526  ; 1.440  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 0.692  ; -0.703 ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 2.349  ; 1.264  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 2.725  ; 1.891  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 2.165  ; 1.071  ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; -4.270 ; -6.813 ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; -2.420 ; -4.539 ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 0.090  ; -1.948 ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; -0.722 ; -2.911 ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 1.074  ; -0.413 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 1.607  ; 0.472  ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 2.195  ; 1.219  ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -240,37 +240,37 @@ No paths to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 10.302 ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 16.502 ; 18.331 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 16.296 ; 18.135 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 16.285 ; 18.005 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 16.276 ; 18.024 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 16.268 ; 18.107 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 16.502 ; 18.331 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 16.037 ; 17.812 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 16.205 ; 18.018 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 16.207 ; 18.028 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 10.312 ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 17.308 ; 19.110 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 17.308 ; 19.106 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 17.292 ; 19.110 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 17.027 ; 18.832 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 17.272 ; 19.087 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 17.266 ; 19.047 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 17.248 ; 19.050 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 17.010 ; 18.833 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 17.022 ; 18.822 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 14.926 ; 16.438 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 16.464 ; 18.069 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 15.976 ; 17.618 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 15.894 ; 17.533 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 16.464 ; 18.069 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 16.062 ; 17.732 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 16.064 ; 17.742 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 16.186 ; 17.786 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 16.167 ; 17.787 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 16.442 ; 18.066 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 15.100 ; 16.630 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 10.270 ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 16.832 ; 18.531 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 16.397 ; 17.962 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 16.832 ; 18.531 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 16.809 ; 18.443 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 16.210 ; 17.706 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 16.713 ; 18.408 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 16.192 ; 17.708 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 16.305 ; 17.844 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 16.503 ; 18.109 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 10.332 ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 17.502 ; 19.064 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 17.502 ; 19.058 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 17.487 ; 19.064 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 16.998 ; 18.615 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 17.252 ; 18.885 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 17.397 ; 19.041 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 17.356 ; 19.010 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 17.183 ; 18.923 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 17.214 ; 18.927 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 14.506 ; 15.769 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 16.878 ; 18.471 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 16.640 ; 18.275 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 16.556 ; 18.191 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 16.740 ; 18.161 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 16.523 ; 18.115 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 16.405 ; 17.948 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 16.878 ; 18.471 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 16.678 ; 18.231 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 16.671 ; 18.222 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 15.035 ; 16.471 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
@@ -279,37 +279,37 @@ No paths to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 8.086  ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 12.579 ; 13.723 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 12.817 ; 14.001 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 12.808 ; 13.902 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 12.798 ; 13.919 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 12.780 ; 13.962 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 12.992 ; 14.163 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 12.579 ; 13.723 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 12.726 ; 13.885 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 12.728 ; 13.893 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 8.051  ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 13.147 ; 14.556 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 13.420 ; 14.815 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 13.405 ; 14.819 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 13.165 ; 14.565 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 13.386 ; 14.798 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 13.383 ; 14.762 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 13.364 ; 14.764 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 13.147 ; 14.566 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 13.160 ; 14.556 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 12.034 ; 13.314 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 12.419 ; 13.554 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 12.501 ; 13.638 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 12.419 ; 13.554 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 12.942 ; 14.043 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 12.566 ; 13.704 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 12.584 ; 13.754 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 12.688 ; 13.784 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 12.668 ; 13.785 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 12.919 ; 14.040 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 12.194 ; 13.496 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 8.074  ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 12.408 ; 13.433 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 12.602 ; 13.658 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 12.959 ; 14.072 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 12.951 ; 14.039 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 12.427 ; 13.433 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 12.854 ; 13.979 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 12.408 ; 13.435 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 12.511 ; 13.541 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 12.678 ; 13.745 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 8.123  ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 13.164 ; 14.172 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 13.631 ; 14.588 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 13.616 ; 14.594 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 13.164 ; 14.172 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 13.394 ; 14.419 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 13.520 ; 14.537 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 13.483 ; 14.511 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 13.314 ; 14.410 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 13.342 ; 14.408 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 11.704 ; 12.773 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 12.590 ; 13.489 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 12.789 ; 13.745 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 12.705 ; 13.661 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 12.891 ; 13.662 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 12.679 ; 13.595 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 12.590 ; 13.489 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 12.998 ; 13.901 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 12.825 ; 13.714 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 12.819 ; 13.706 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 12.154 ; 13.349 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
@@ -318,34 +318,34 @@ No paths to report.
 +------------+-------------+--------+----+----+--------+
 ; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
 +------------+-------------+--------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 8.928  ;    ;    ; 10.024 ;
-; KEY_N_0    ; VGA_B[0]    ; 14.181 ;    ;    ; 17.282 ;
-; KEY_N_0    ; VGA_B[1]    ; 14.170 ;    ;    ; 17.152 ;
-; KEY_N_0    ; VGA_B[2]    ; 14.161 ;    ;    ; 17.171 ;
-; KEY_N_0    ; VGA_B[3]    ; 14.153 ;    ;    ; 17.254 ;
-; KEY_N_0    ; VGA_B[4]    ; 14.387 ;    ;    ; 17.478 ;
-; KEY_N_0    ; VGA_B[5]    ; 13.922 ;    ;    ; 16.959 ;
-; KEY_N_0    ; VGA_B[6]    ; 14.090 ;    ;    ; 17.165 ;
-; KEY_N_0    ; VGA_B[7]    ; 14.092 ;    ;    ; 17.175 ;
-; KEY_N_0    ; VGA_G[0]    ; 14.615 ;    ;    ; 17.804 ;
-; KEY_N_0    ; VGA_G[1]    ; 14.599 ;    ;    ; 17.808 ;
-; KEY_N_0    ; VGA_G[2]    ; 14.334 ;    ;    ; 17.530 ;
-; KEY_N_0    ; VGA_G[3]    ; 14.579 ;    ;    ; 17.785 ;
-; KEY_N_0    ; VGA_G[4]    ; 14.573 ;    ;    ; 17.745 ;
-; KEY_N_0    ; VGA_G[5]    ; 14.555 ;    ;    ; 17.748 ;
-; KEY_N_0    ; VGA_G[6]    ; 14.317 ;    ;    ; 17.531 ;
-; KEY_N_0    ; VGA_G[7]    ; 14.329 ;    ;    ; 17.520 ;
-; KEY_N_0    ; VGA_R[0]    ; 13.839 ;    ;    ; 16.776 ;
-; KEY_N_0    ; VGA_R[1]    ; 13.757 ;    ;    ; 16.691 ;
-; KEY_N_0    ; VGA_R[2]    ; 14.327 ;    ;    ; 17.227 ;
-; KEY_N_0    ; VGA_R[3]    ; 13.925 ;    ;    ; 16.890 ;
-; KEY_N_0    ; VGA_R[4]    ; 13.927 ;    ;    ; 16.900 ;
-; KEY_N_0    ; VGA_R[5]    ; 14.049 ;    ;    ; 16.944 ;
-; KEY_N_0    ; VGA_R[6]    ; 14.030 ;    ;    ; 16.945 ;
-; KEY_N_0    ; VGA_R[7]    ; 14.305 ;    ;    ; 17.224 ;
-; KEY_N_1    ; LEDR[1]     ; 8.659  ;    ;    ; 9.640  ;
-; KEY_N_2    ; LEDR[2]     ; 8.957  ;    ;    ; 10.017 ;
-; KEY_N_3    ; LEDR[3]     ; 8.222  ;    ;    ; 9.735  ;
+; KEY_N_0    ; LEDR[0]     ; 8.806  ;    ;    ; 9.826  ;
+; KEY_N_0    ; VGA_B[0]    ; 16.458 ;    ;    ; 20.611 ;
+; KEY_N_0    ; VGA_B[1]    ; 16.893 ;    ;    ; 21.180 ;
+; KEY_N_0    ; VGA_B[2]    ; 16.870 ;    ;    ; 21.092 ;
+; KEY_N_0    ; VGA_B[3]    ; 16.271 ;    ;    ; 20.355 ;
+; KEY_N_0    ; VGA_B[4]    ; 16.774 ;    ;    ; 21.057 ;
+; KEY_N_0    ; VGA_B[5]    ; 16.253 ;    ;    ; 20.357 ;
+; KEY_N_0    ; VGA_B[6]    ; 16.366 ;    ;    ; 20.493 ;
+; KEY_N_0    ; VGA_B[7]    ; 16.564 ;    ;    ; 20.758 ;
+; KEY_N_0    ; VGA_G[0]    ; 17.185 ;    ;    ; 21.333 ;
+; KEY_N_0    ; VGA_G[1]    ; 17.170 ;    ;    ; 21.339 ;
+; KEY_N_0    ; VGA_G[2]    ; 16.681 ;    ;    ; 20.890 ;
+; KEY_N_0    ; VGA_G[3]    ; 16.935 ;    ;    ; 21.160 ;
+; KEY_N_0    ; VGA_G[4]    ; 17.080 ;    ;    ; 21.316 ;
+; KEY_N_0    ; VGA_G[5]    ; 17.039 ;    ;    ; 21.285 ;
+; KEY_N_0    ; VGA_G[6]    ; 16.866 ;    ;    ; 21.198 ;
+; KEY_N_0    ; VGA_G[7]    ; 16.897 ;    ;    ; 21.202 ;
+; KEY_N_0    ; VGA_R[0]    ; 16.702 ;    ;    ; 20.950 ;
+; KEY_N_0    ; VGA_R[1]    ; 16.618 ;    ;    ; 20.866 ;
+; KEY_N_0    ; VGA_R[2]    ; 16.802 ;    ;    ; 20.836 ;
+; KEY_N_0    ; VGA_R[3]    ; 16.585 ;    ;    ; 20.790 ;
+; KEY_N_0    ; VGA_R[4]    ; 16.467 ;    ;    ; 20.623 ;
+; KEY_N_0    ; VGA_R[5]    ; 16.940 ;    ;    ; 21.146 ;
+; KEY_N_0    ; VGA_R[6]    ; 16.740 ;    ;    ; 20.906 ;
+; KEY_N_0    ; VGA_R[7]    ; 16.733 ;    ;    ; 20.897 ;
+; KEY_N_1    ; LEDR[1]     ; 8.773  ;    ;    ; 9.846  ;
+; KEY_N_2    ; LEDR[2]     ; 9.028  ;    ;    ; 10.186 ;
+; KEY_N_3    ; LEDR[3]     ; 8.217  ;    ;    ; 9.726  ;
 +------------+-------------+--------+----+----+--------+
 
 
@@ -354,34 +354,34 @@ No paths to report.
 +------------+-------------+--------+----+----+--------+
 ; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
 +------------+-------------+--------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 7.241  ;    ;    ; 8.100  ;
-; KEY_N_0    ; VGA_B[0]    ; 12.897 ;    ;    ; 15.521 ;
-; KEY_N_0    ; VGA_B[1]    ; 12.888 ;    ;    ; 15.422 ;
-; KEY_N_0    ; VGA_B[2]    ; 12.878 ;    ;    ; 15.439 ;
-; KEY_N_0    ; VGA_B[3]    ; 12.860 ;    ;    ; 15.482 ;
-; KEY_N_0    ; VGA_B[4]    ; 13.072 ;    ;    ; 15.683 ;
-; KEY_N_0    ; VGA_B[5]    ; 12.659 ;    ;    ; 15.243 ;
-; KEY_N_0    ; VGA_B[6]    ; 12.806 ;    ;    ; 15.405 ;
-; KEY_N_0    ; VGA_B[7]    ; 12.808 ;    ;    ; 15.413 ;
-; KEY_N_0    ; VGA_G[0]    ; 13.281 ;    ;    ; 15.901 ;
-; KEY_N_0    ; VGA_G[1]    ; 13.266 ;    ;    ; 15.905 ;
-; KEY_N_0    ; VGA_G[2]    ; 13.026 ;    ;    ; 15.651 ;
-; KEY_N_0    ; VGA_G[3]    ; 13.247 ;    ;    ; 15.884 ;
-; KEY_N_0    ; VGA_G[4]    ; 13.244 ;    ;    ; 15.848 ;
-; KEY_N_0    ; VGA_G[5]    ; 13.225 ;    ;    ; 15.850 ;
-; KEY_N_0    ; VGA_G[6]    ; 13.008 ;    ;    ; 15.652 ;
-; KEY_N_0    ; VGA_G[7]    ; 13.021 ;    ;    ; 15.642 ;
-; KEY_N_0    ; VGA_R[0]    ; 12.589 ;    ;    ; 15.093 ;
-; KEY_N_0    ; VGA_R[1]    ; 12.507 ;    ;    ; 15.009 ;
-; KEY_N_0    ; VGA_R[2]    ; 13.030 ;    ;    ; 15.498 ;
-; KEY_N_0    ; VGA_R[3]    ; 12.654 ;    ;    ; 15.159 ;
-; KEY_N_0    ; VGA_R[4]    ; 12.672 ;    ;    ; 15.209 ;
-; KEY_N_0    ; VGA_R[5]    ; 12.776 ;    ;    ; 15.239 ;
-; KEY_N_0    ; VGA_R[6]    ; 12.756 ;    ;    ; 15.240 ;
-; KEY_N_0    ; VGA_R[7]    ; 13.007 ;    ;    ; 15.495 ;
-; KEY_N_1    ; LEDR[1]     ; 7.003  ;    ;    ; 7.789  ;
-; KEY_N_2    ; LEDR[2]     ; 7.248  ;    ;    ; 8.060  ;
-; KEY_N_3    ; LEDR[3]     ; 7.430  ;    ;    ; 8.552  ;
+; KEY_N_0    ; LEDR[0]     ; 7.145  ;    ;    ; 7.968  ;
+; KEY_N_0    ; VGA_B[0]    ; 14.832 ;    ;    ; 18.277 ;
+; KEY_N_0    ; VGA_B[1]    ; 15.189 ;    ;    ; 18.691 ;
+; KEY_N_0    ; VGA_B[2]    ; 15.181 ;    ;    ; 18.658 ;
+; KEY_N_0    ; VGA_B[3]    ; 14.657 ;    ;    ; 18.052 ;
+; KEY_N_0    ; VGA_B[4]    ; 15.084 ;    ;    ; 18.598 ;
+; KEY_N_0    ; VGA_B[5]    ; 14.638 ;    ;    ; 18.054 ;
+; KEY_N_0    ; VGA_B[6]    ; 14.741 ;    ;    ; 18.160 ;
+; KEY_N_0    ; VGA_B[7]    ; 14.908 ;    ;    ; 18.364 ;
+; KEY_N_0    ; VGA_G[0]    ; 15.500 ;    ;    ; 18.885 ;
+; KEY_N_0    ; VGA_G[1]    ; 15.485 ;    ;    ; 18.891 ;
+; KEY_N_0    ; VGA_G[2]    ; 15.033 ;    ;    ; 18.469 ;
+; KEY_N_0    ; VGA_G[3]    ; 15.263 ;    ;    ; 18.716 ;
+; KEY_N_0    ; VGA_G[4]    ; 15.389 ;    ;    ; 18.834 ;
+; KEY_N_0    ; VGA_G[5]    ; 15.352 ;    ;    ; 18.808 ;
+; KEY_N_0    ; VGA_G[6]    ; 15.183 ;    ;    ; 18.707 ;
+; KEY_N_0    ; VGA_G[7]    ; 15.211 ;    ;    ; 18.705 ;
+; KEY_N_0    ; VGA_R[0]    ; 15.030 ;    ;    ; 18.532 ;
+; KEY_N_0    ; VGA_R[1]    ; 14.946 ;    ;    ; 18.448 ;
+; KEY_N_0    ; VGA_R[2]    ; 15.132 ;    ;    ; 18.449 ;
+; KEY_N_0    ; VGA_R[3]    ; 14.920 ;    ;    ; 18.382 ;
+; KEY_N_0    ; VGA_R[4]    ; 14.831 ;    ;    ; 18.276 ;
+; KEY_N_0    ; VGA_R[5]    ; 15.239 ;    ;    ; 18.688 ;
+; KEY_N_0    ; VGA_R[6]    ; 15.066 ;    ;    ; 18.501 ;
+; KEY_N_0    ; VGA_R[7]    ; 15.060 ;    ;    ; 18.493 ;
+; KEY_N_1    ; LEDR[1]     ; 7.107  ;    ;    ; 7.966  ;
+; KEY_N_2    ; LEDR[2]     ; 7.316  ;    ;    ; 8.208  ;
+; KEY_N_3    ; LEDR[3]     ; 7.425  ;    ;    ; 8.545  ;
 +------------+-------------+--------+----+----+--------+
 
 
@@ -391,16 +391,16 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+--------------------------------------------------------------------+
-; Slow 1100mV 0C Model Fmax Summary                                  ;
-+------------+-----------------+------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                   ; Note ;
-+------------+-----------------+------------------------------+------+
-; 26.82 MHz  ; 26.82 MHz       ; clock_divider_negedge:d3|clk ;      ;
-; 194.33 MHz ; 194.33 MHz      ; clock_divider:d2|clk         ;      ;
-; 222.97 MHz ; 222.97 MHz      ; clock_divider:d1|clk         ;      ;
-; 353.86 MHz ; 353.86 MHz      ; CLOCK_50                     ;      ;
-+------------+-----------------+------------------------------+------+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Fmax Summary                                                                                  ;
++------------+-----------------+------------------------------+------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                   ; Note                                                 ;
++------------+-----------------+------------------------------+------------------------------------------------------+
+; 21.27 MHz  ; 21.27 MHz       ; clock_divider_negedge:d3|clk ;                                                      ;
+; 187.2 MHz  ; 187.2 MHz       ; clock_divider:d2|clk         ;                                                      ;
+; 260.15 MHz ; 260.15 MHz      ; clock_divider:d1|clk         ;                                                      ;
+; 383.0 MHz  ; 358.42 MHz      ; CLOCK_50                     ; limit due to low minimum pulse width violation (tcl) ;
++------------+-----------------+------------------------------+------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -409,10 +409,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------+---------+---------------+
 ; Clock                        ; Slack   ; End Point TNS ;
 +------------------------------+---------+---------------+
-; clock_divider_negedge:d3|clk ; -36.279 ; -22803.863    ;
-; clock_divider:d1|clk         ; -5.103  ; -570.985      ;
-; clock_divider:d2|clk         ; -4.993  ; -2114.768     ;
-; CLOCK_50                     ; -1.826  ; -16.494       ;
+; clock_divider_negedge:d3|clk ; -46.017 ; -33087.168    ;
+; clock_divider:d1|clk         ; -5.308  ; -536.365      ;
+; clock_divider:d2|clk         ; -5.237  ; -2305.702     ;
+; CLOCK_50                     ; -1.611  ; -15.563       ;
 +------------------------------+---------+---------------+
 
 
@@ -421,10 +421,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -1.367 ; -3.991        ;
-; clock_divider:d1|clk         ; -0.664 ; -49.901       ;
-; clock_divider:d2|clk         ; -0.529 ; -91.503       ;
-; clock_divider_negedge:d3|clk ; 0.277  ; 0.000         ;
+; CLOCK_50                     ; -1.648 ; -4.607        ;
+; clock_divider:d1|clk         ; -0.831 ; -49.714       ;
+; clock_divider:d2|clk         ; -0.604 ; -88.664       ;
+; clock_divider_negedge:d3|clk ; 0.275  ; 0.000         ;
 +------------------------------+--------+---------------+
 
 
@@ -445,10 +445,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; clock_divider:d2|clk         ; -2.174 ; -2153.750     ;
-; clock_divider_negedge:d3|clk ; -2.174 ; -529.992      ;
-; CLOCK_50                     ; -0.867 ; -11.032       ;
-; clock_divider:d1|clk         ; -0.394 ; -76.325       ;
+; clock_divider:d2|clk         ; -2.174 ; -2143.748     ;
+; clock_divider_negedge:d3|clk ; -2.174 ; -678.409      ;
+; CLOCK_50                     ; -0.895 ; -11.098       ;
+; clock_divider:d1|clk         ; -0.394 ; -74.154       ;
 +------------------------------+--------+---------------+
 
 
@@ -457,13 +457,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; 3.321  ; 5.061  ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; 3.444  ; 5.183  ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 2.477  ; 4.184  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 5.033  ; 7.544  ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 21.263 ; 22.344 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 22.386 ; 23.289 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 23.308 ; 24.540 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; 6.693  ; 9.895  ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; 5.377  ; 7.789  ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 4.738  ; 6.982  ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; 6.395  ; 8.962  ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 24.886 ; 26.261 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 23.462 ; 25.289 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 22.793 ; 23.518 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -472,13 +472,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; -1.480 ; -2.898 ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; -1.243 ; -2.791 ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 2.367  ; 1.269  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 0.663  ; -0.804 ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 2.318  ; 1.180  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 2.668  ; 1.801  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 2.006  ; 0.868  ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; -4.573 ; -7.201 ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; -2.719 ; -4.855 ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; -0.248 ; -2.280 ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; -0.908 ; -3.099 ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 0.935  ; -0.636 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 1.435  ; 0.273  ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 2.086  ; 1.071  ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -487,37 +487,37 @@ No paths to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 9.995  ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 16.097 ; 17.977 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 15.911 ; 17.790 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 15.874 ; 17.648 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 15.873 ; 17.666 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 15.882 ; 17.765 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 16.097 ; 17.977 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 15.655 ; 17.461 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 15.810 ; 17.668 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 15.814 ; 17.682 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 10.027 ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 16.938 ; 18.811 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 16.938 ; 18.809 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 16.927 ; 18.811 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 16.676 ; 18.539 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 16.907 ; 18.790 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 16.893 ; 18.750 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 16.881 ; 18.751 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 16.664 ; 18.539 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 16.669 ; 18.530 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 14.549 ; 16.126 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 16.065 ; 17.706 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 15.620 ; 17.263 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 15.534 ; 17.175 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 16.065 ; 17.706 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 15.692 ; 17.378 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 15.720 ; 17.401 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 15.803 ; 17.426 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 15.789 ; 17.425 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 16.049 ; 17.702 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 14.738 ; 16.314 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 9.944  ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 16.494 ; 18.167 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 16.087 ; 17.608 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 16.494 ; 18.167 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 16.479 ; 18.076 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 15.897 ; 17.348 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 16.393 ; 18.046 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 15.885 ; 17.348 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 15.986 ; 17.486 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 16.179 ; 17.750 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 10.005 ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 17.119 ; 18.686 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 17.119 ; 18.682 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 17.110 ; 18.686 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 16.663 ; 18.258 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 16.905 ; 18.520 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 17.033 ; 18.673 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 16.996 ; 18.637 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 16.859 ; 18.579 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 16.883 ; 18.585 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 14.040 ; 15.368 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 16.525 ; 18.108 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 16.316 ; 17.917 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 16.230 ; 17.830 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 16.346 ; 17.760 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 16.186 ; 17.756 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 16.098 ; 17.598 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 16.525 ; 18.108 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 16.335 ; 17.866 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 16.327 ; 17.855 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 14.534 ; 16.049 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
@@ -526,37 +526,37 @@ No paths to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 7.856  ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 12.342 ; 13.511 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 12.578 ; 13.801 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 12.544 ; 13.684 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 12.542 ; 13.700 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 12.540 ; 13.766 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 12.734 ; 13.957 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 12.342 ; 13.511 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 12.478 ; 13.681 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 12.480 ; 13.692 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 7.844  ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 12.906 ; 14.383 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 13.157 ; 14.636 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 13.146 ; 14.638 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 12.918 ; 14.391 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 13.128 ; 14.619 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 13.117 ; 14.584 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 13.104 ; 14.584 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 12.906 ; 14.390 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 12.913 ; 14.383 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 11.773 ; 13.085 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 12.164 ; 13.360 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 12.250 ; 13.447 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 12.164 ; 13.360 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 12.649 ; 13.844 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 12.300 ; 13.523 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 12.343 ; 13.576 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 12.410 ; 13.589 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 12.396 ; 13.588 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 12.633 ; 13.840 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 11.950 ; 13.288 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 7.830  ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 12.168 ; 13.188 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 12.359 ; 13.412 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 12.689 ; 13.853 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 12.689 ; 13.803 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 12.181 ; 13.188 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 12.602 ; 13.755 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 12.168 ; 13.188 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 12.259 ; 13.291 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 12.421 ; 13.513 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 7.872  ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 12.876 ; 13.955 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 13.298 ; 14.351 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 13.289 ; 14.355 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 12.876 ; 13.955 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 13.096 ; 14.193 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 13.207 ; 14.316 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 13.172 ; 14.285 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 13.038 ; 14.204 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 13.058 ; 14.205 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 11.361 ; 12.470 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 12.353 ; 13.261 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 12.535 ; 13.517 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 12.450 ; 13.430 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 12.571 ; 13.390 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 12.413 ; 13.366 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 12.353 ; 13.261 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 12.716 ; 13.676 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 12.552 ; 13.478 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 12.545 ; 13.469 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 11.784 ; 13.047 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
@@ -565,34 +565,34 @@ No paths to report.
 +------------+-------------+--------+----+----+--------+
 ; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
 +------------+-------------+--------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 8.649  ;    ;    ; 9.759  ;
-; KEY_N_0    ; VGA_B[0]    ; 13.994 ;    ;    ; 17.180 ;
-; KEY_N_0    ; VGA_B[1]    ; 13.957 ;    ;    ; 17.038 ;
-; KEY_N_0    ; VGA_B[2]    ; 13.956 ;    ;    ; 17.056 ;
-; KEY_N_0    ; VGA_B[3]    ; 13.965 ;    ;    ; 17.155 ;
-; KEY_N_0    ; VGA_B[4]    ; 14.180 ;    ;    ; 17.367 ;
-; KEY_N_0    ; VGA_B[5]    ; 13.738 ;    ;    ; 16.851 ;
-; KEY_N_0    ; VGA_B[6]    ; 13.893 ;    ;    ; 17.058 ;
-; KEY_N_0    ; VGA_B[7]    ; 13.897 ;    ;    ; 17.072 ;
-; KEY_N_0    ; VGA_G[0]    ; 14.391 ;    ;    ; 17.709 ;
-; KEY_N_0    ; VGA_G[1]    ; 14.380 ;    ;    ; 17.711 ;
-; KEY_N_0    ; VGA_G[2]    ; 14.129 ;    ;    ; 17.439 ;
-; KEY_N_0    ; VGA_G[3]    ; 14.360 ;    ;    ; 17.690 ;
-; KEY_N_0    ; VGA_G[4]    ; 14.346 ;    ;    ; 17.650 ;
-; KEY_N_0    ; VGA_G[5]    ; 14.334 ;    ;    ; 17.651 ;
-; KEY_N_0    ; VGA_G[6]    ; 14.117 ;    ;    ; 17.439 ;
-; KEY_N_0    ; VGA_G[7]    ; 14.122 ;    ;    ; 17.430 ;
-; KEY_N_0    ; VGA_R[0]    ; 13.638 ;    ;    ; 16.664 ;
-; KEY_N_0    ; VGA_R[1]    ; 13.552 ;    ;    ; 16.576 ;
-; KEY_N_0    ; VGA_R[2]    ; 14.083 ;    ;    ; 17.107 ;
-; KEY_N_0    ; VGA_R[3]    ; 13.710 ;    ;    ; 16.779 ;
-; KEY_N_0    ; VGA_R[4]    ; 13.738 ;    ;    ; 16.802 ;
-; KEY_N_0    ; VGA_R[5]    ; 13.821 ;    ;    ; 16.827 ;
-; KEY_N_0    ; VGA_R[6]    ; 13.807 ;    ;    ; 16.826 ;
-; KEY_N_0    ; VGA_R[7]    ; 14.067 ;    ;    ; 17.103 ;
-; KEY_N_1    ; LEDR[1]     ; 8.306  ;    ;    ; 9.321  ;
-; KEY_N_2    ; LEDR[2]     ; 8.662  ;    ;    ; 9.752  ;
-; KEY_N_3    ; LEDR[3]     ; 7.943  ;    ;    ; 9.503  ;
+; KEY_N_0    ; LEDR[0]     ; 8.527  ;    ;    ; 9.556  ;
+; KEY_N_0    ; VGA_B[0]    ; 16.431 ;    ;    ; 20.664 ;
+; KEY_N_0    ; VGA_B[1]    ; 16.838 ;    ;    ; 21.223 ;
+; KEY_N_0    ; VGA_B[2]    ; 16.823 ;    ;    ; 21.132 ;
+; KEY_N_0    ; VGA_B[3]    ; 16.241 ;    ;    ; 20.404 ;
+; KEY_N_0    ; VGA_B[4]    ; 16.737 ;    ;    ; 21.102 ;
+; KEY_N_0    ; VGA_B[5]    ; 16.229 ;    ;    ; 20.404 ;
+; KEY_N_0    ; VGA_B[6]    ; 16.330 ;    ;    ; 20.542 ;
+; KEY_N_0    ; VGA_B[7]    ; 16.523 ;    ;    ; 20.806 ;
+; KEY_N_0    ; VGA_G[0]    ; 17.029 ;    ;    ; 21.335 ;
+; KEY_N_0    ; VGA_G[1]    ; 17.020 ;    ;    ; 21.339 ;
+; KEY_N_0    ; VGA_G[2]    ; 16.573 ;    ;    ; 20.911 ;
+; KEY_N_0    ; VGA_G[3]    ; 16.815 ;    ;    ; 21.173 ;
+; KEY_N_0    ; VGA_G[4]    ; 16.943 ;    ;    ; 21.326 ;
+; KEY_N_0    ; VGA_G[5]    ; 16.906 ;    ;    ; 21.290 ;
+; KEY_N_0    ; VGA_G[6]    ; 16.769 ;    ;    ; 21.232 ;
+; KEY_N_0    ; VGA_G[7]    ; 16.793 ;    ;    ; 21.238 ;
+; KEY_N_0    ; VGA_R[0]    ; 16.660 ;    ;    ; 21.000 ;
+; KEY_N_0    ; VGA_R[1]    ; 16.574 ;    ;    ; 20.913 ;
+; KEY_N_0    ; VGA_R[2]    ; 16.690 ;    ;    ; 20.843 ;
+; KEY_N_0    ; VGA_R[3]    ; 16.530 ;    ;    ; 20.839 ;
+; KEY_N_0    ; VGA_R[4]    ; 16.442 ;    ;    ; 20.681 ;
+; KEY_N_0    ; VGA_R[5]    ; 16.869 ;    ;    ; 21.191 ;
+; KEY_N_0    ; VGA_R[6]    ; 16.679 ;    ;    ; 20.949 ;
+; KEY_N_0    ; VGA_R[7]    ; 16.671 ;    ;    ; 20.938 ;
+; KEY_N_1    ; LEDR[1]     ; 8.456  ;    ;    ; 9.560  ;
+; KEY_N_2    ; LEDR[2]     ; 8.765  ;    ;    ; 9.941  ;
+; KEY_N_3    ; LEDR[3]     ; 7.934  ;    ;    ; 9.494  ;
 +------------+-------------+--------+----+----+--------+
 
 
@@ -601,34 +601,34 @@ No paths to report.
 +------------+-------------+--------+----+----+--------+
 ; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
 +------------+-------------+--------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 6.994  ;    ;    ; 7.901  ;
-; KEY_N_0    ; VGA_B[0]    ; 12.698 ;    ;    ; 15.427 ;
-; KEY_N_0    ; VGA_B[1]    ; 12.664 ;    ;    ; 15.310 ;
-; KEY_N_0    ; VGA_B[2]    ; 12.662 ;    ;    ; 15.326 ;
-; KEY_N_0    ; VGA_B[3]    ; 12.660 ;    ;    ; 15.392 ;
-; KEY_N_0    ; VGA_B[4]    ; 12.854 ;    ;    ; 15.583 ;
-; KEY_N_0    ; VGA_B[5]    ; 12.462 ;    ;    ; 15.137 ;
-; KEY_N_0    ; VGA_B[6]    ; 12.598 ;    ;    ; 15.307 ;
-; KEY_N_0    ; VGA_B[7]    ; 12.600 ;    ;    ; 15.318 ;
-; KEY_N_0    ; VGA_G[0]    ; 13.045 ;    ;    ; 15.784 ;
-; KEY_N_0    ; VGA_G[1]    ; 13.034 ;    ;    ; 15.786 ;
-; KEY_N_0    ; VGA_G[2]    ; 12.806 ;    ;    ; 15.539 ;
-; KEY_N_0    ; VGA_G[3]    ; 13.016 ;    ;    ; 15.767 ;
-; KEY_N_0    ; VGA_G[4]    ; 13.005 ;    ;    ; 15.732 ;
-; KEY_N_0    ; VGA_G[5]    ; 12.992 ;    ;    ; 15.732 ;
-; KEY_N_0    ; VGA_G[6]    ; 12.794 ;    ;    ; 15.538 ;
-; KEY_N_0    ; VGA_G[7]    ; 12.801 ;    ;    ; 15.531 ;
-; KEY_N_0    ; VGA_R[0]    ; 12.378 ;    ;    ; 14.984 ;
-; KEY_N_0    ; VGA_R[1]    ; 12.292 ;    ;    ; 14.897 ;
-; KEY_N_0    ; VGA_R[2]    ; 12.777 ;    ;    ; 15.381 ;
-; KEY_N_0    ; VGA_R[3]    ; 12.428 ;    ;    ; 15.060 ;
-; KEY_N_0    ; VGA_R[4]    ; 12.471 ;    ;    ; 15.113 ;
-; KEY_N_0    ; VGA_R[5]    ; 12.538 ;    ;    ; 15.126 ;
-; KEY_N_0    ; VGA_R[6]    ; 12.524 ;    ;    ; 15.125 ;
-; KEY_N_0    ; VGA_R[7]    ; 12.761 ;    ;    ; 15.377 ;
-; KEY_N_1    ; LEDR[1]     ; 6.686  ;    ;    ; 7.540  ;
-; KEY_N_2    ; LEDR[2]     ; 6.987  ;    ;    ; 7.855  ;
-; KEY_N_3    ; LEDR[3]     ; 7.157  ;    ;    ; 8.366  ;
+; KEY_N_0    ; LEDR[0]     ; 6.898  ;    ;    ; 7.757  ;
+; KEY_N_0    ; VGA_B[0]    ; 14.782 ;    ;    ; 18.302 ;
+; KEY_N_0    ; VGA_B[1]    ; 15.112 ;    ;    ; 18.743 ;
+; KEY_N_0    ; VGA_B[2]    ; 15.112 ;    ;    ; 18.693 ;
+; KEY_N_0    ; VGA_B[3]    ; 14.604 ;    ;    ; 18.078 ;
+; KEY_N_0    ; VGA_B[4]    ; 15.025 ;    ;    ; 18.645 ;
+; KEY_N_0    ; VGA_B[5]    ; 14.591 ;    ;    ; 18.078 ;
+; KEY_N_0    ; VGA_B[6]    ; 14.682 ;    ;    ; 18.181 ;
+; KEY_N_0    ; VGA_B[7]    ; 14.844 ;    ;    ; 18.403 ;
+; KEY_N_0    ; VGA_G[0]    ; 15.331 ;    ;    ; 18.888 ;
+; KEY_N_0    ; VGA_G[1]    ; 15.322 ;    ;    ; 18.892 ;
+; KEY_N_0    ; VGA_G[2]    ; 14.909 ;    ;    ; 18.492 ;
+; KEY_N_0    ; VGA_G[3]    ; 15.129 ;    ;    ; 18.730 ;
+; KEY_N_0    ; VGA_G[4]    ; 15.240 ;    ;    ; 18.853 ;
+; KEY_N_0    ; VGA_G[5]    ; 15.205 ;    ;    ; 18.822 ;
+; KEY_N_0    ; VGA_G[6]    ; 15.071 ;    ;    ; 18.741 ;
+; KEY_N_0    ; VGA_G[7]    ; 15.091 ;    ;    ; 18.742 ;
+; KEY_N_0    ; VGA_R[0]    ; 14.968 ;    ;    ; 18.574 ;
+; KEY_N_0    ; VGA_R[1]    ; 14.883 ;    ;    ; 18.487 ;
+; KEY_N_0    ; VGA_R[2]    ; 15.004 ;    ;    ; 18.447 ;
+; KEY_N_0    ; VGA_R[3]    ; 14.846 ;    ;    ; 18.423 ;
+; KEY_N_0    ; VGA_R[4]    ; 14.786 ;    ;    ; 18.318 ;
+; KEY_N_0    ; VGA_R[5]    ; 15.149 ;    ;    ; 18.733 ;
+; KEY_N_0    ; VGA_R[6]    ; 14.985 ;    ;    ; 18.535 ;
+; KEY_N_0    ; VGA_R[7]    ; 14.978 ;    ;    ; 18.526 ;
+; KEY_N_1    ; LEDR[1]     ; 6.821  ;    ;    ; 7.753  ;
+; KEY_N_2    ; LEDR[2]     ; 7.081  ;    ;    ; 8.019  ;
+; KEY_N_3    ; LEDR[3]     ; 7.149  ;    ;    ; 8.358  ;
 +------------+-------------+--------+----+----+--------+
 
 
@@ -643,10 +643,10 @@ No synchronizer chains to report.
 +------------------------------+---------+---------------+
 ; Clock                        ; Slack   ; End Point TNS ;
 +------------------------------+---------+---------------+
-; clock_divider_negedge:d3|clk ; -19.851 ; -12644.710    ;
-; clock_divider:d1|clk         ; -2.719  ; -289.093      ;
-; clock_divider:d2|clk         ; -2.705  ; -1113.689     ;
-; CLOCK_50                     ; -0.566  ; -4.677        ;
+; clock_divider_negedge:d3|clk ; -23.488 ; -17603.133    ;
+; clock_divider:d1|clk         ; -2.877  ; -265.696      ;
+; clock_divider:d2|clk         ; -2.772  ; -1232.149     ;
+; CLOCK_50                     ; -0.454  ; -4.250        ;
 +------------------------------+---------+---------------+
 
 
@@ -655,9 +655,9 @@ No synchronizer chains to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -0.991 ; -2.308        ;
-; clock_divider:d1|clk         ; -0.413 ; -31.606       ;
-; clock_divider:d2|clk         ; -0.317 ; -32.106       ;
+; CLOCK_50                     ; -1.422 ; -2.929        ;
+; clock_divider:d1|clk         ; -0.495 ; -27.686       ;
+; clock_divider:d2|clk         ; -0.425 ; -32.222       ;
 ; clock_divider_negedge:d3|clk ; 0.138  ; 0.000         ;
 +------------------------------+--------+---------------+
 
@@ -679,10 +679,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; clock_divider:d2|clk         ; -2.174 ; -2159.281     ;
-; clock_divider_negedge:d3|clk ; -2.174 ; -56.356       ;
-; CLOCK_50                     ; -0.868 ; -9.669        ;
-; clock_divider:d1|clk         ; 0.038  ; 0.000         ;
+; clock_divider:d2|clk         ; -2.174 ; -2143.649     ;
+; clock_divider_negedge:d3|clk ; -2.174 ; -55.852       ;
+; CLOCK_50                     ; -0.894 ; -9.739        ;
+; clock_divider:d1|clk         ; 0.030  ; 0.000         ;
 +------------------------------+--------+---------------+
 
 
@@ -691,13 +691,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; 2.146  ; 4.023  ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; 1.806  ; 3.637  ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 1.375  ; 3.193  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 3.110  ; 5.685  ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 12.035 ; 13.296 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 12.961 ; 14.143 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 13.359 ; 14.785 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; 4.672  ; 7.790  ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; 3.180  ; 5.652  ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 2.967  ; 5.273  ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; 4.206  ; 6.776  ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 13.997 ; 15.457 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 13.024 ; 15.182 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 12.609 ; 14.323 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -706,13 +706,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; -1.109 ; -2.700 ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; -0.441 ; -2.102 ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 1.481  ; 0.146  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 0.312  ; -1.320 ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 1.325  ; 0.167  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 1.653  ; 0.548  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 1.201  ; -0.155 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; -3.330 ; -6.020 ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; -1.416 ; -3.665 ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; -0.467 ; -2.611 ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; -0.867 ; -3.169 ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 0.353  ; -1.321 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 0.766  ; -0.621 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 1.173  ; -0.077 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -721,149 +721,149 @@ No paths to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 6.238  ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 10.459 ; 12.109 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 10.288 ; 11.922 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 10.307 ; 11.861 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 10.304 ; 11.882 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 10.313 ; 11.946 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 10.459 ; 12.109 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 10.163 ; 11.736 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 10.261 ; 11.870 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 10.264 ; 11.876 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 6.421  ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 10.968 ; 12.688 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 10.968 ; 12.683 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 10.956 ; 12.688 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 10.804 ; 12.501 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 10.942 ; 12.671 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 10.939 ; 12.640 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 10.925 ; 12.644 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 10.789 ; 12.501 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 10.798 ; 12.490 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 9.481  ; 10.837 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 10.490 ; 11.895 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 10.182 ; 11.570 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 10.141 ; 11.527 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 10.490 ; 11.895 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 10.249 ; 11.663 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 10.233 ; 11.655 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 10.319 ; 11.697 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 10.304 ; 11.699 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 10.471 ; 11.893 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 9.673  ; 11.074 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 6.196  ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 10.819 ; 12.198 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 10.483 ; 11.723 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 10.819 ; 12.198 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 10.809 ; 12.140 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 10.424 ; 11.610 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 10.754 ; 12.124 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 10.410 ; 11.613 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 10.456 ; 11.671 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 10.604 ; 11.887 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 6.386  ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 11.238 ; 12.548 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 11.238 ; 12.541 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 11.227 ; 12.548 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 10.948 ; 12.248 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 11.093 ; 12.427 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 11.181 ; 12.531 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 11.150 ; 12.509 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 11.057 ; 12.459 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 11.082 ; 12.468 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 9.065  ; 10.222 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 10.826 ; 12.132 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 10.658 ; 11.977 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 10.617 ; 11.934 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 10.719 ; 11.899 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 10.592 ; 11.871 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 10.513 ; 11.747 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 10.826 ; 12.132 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 10.692 ; 11.961 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 10.687 ; 11.953 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 9.427  ; 10.757 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
-+---------------------------------------------------------------------------------------+
-; Minimum Clock to Output Times                                                         ;
-+-----------+----------------------+-------+--------+------------+----------------------+
-; Data Port ; Clock Port           ; Rise  ; Fall   ; Clock Edge ; Clock Reference      ;
-+-----------+----------------------+-------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;       ; 5.110  ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 8.240 ; 9.306  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 8.354 ; 9.464  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 8.375 ; 9.422  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 8.371 ; 9.442  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 8.372 ; 9.478  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 8.505 ; 9.623  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 8.240 ; 9.306  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 8.327 ; 9.412  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 8.330 ; 9.417  ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 5.233 ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 8.697 ; 9.932  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 8.862 ; 10.109 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 8.850 ; 10.115 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 8.711 ; 9.942  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 8.837 ; 10.099 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 8.836 ; 10.071 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 8.822 ; 10.074 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 8.697 ; 9.943  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 8.706 ; 9.932  ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 7.962 ; 9.138  ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 8.119 ; 9.208  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 8.159 ; 9.250  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 8.119 ; 9.208  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 8.441 ; 9.547  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 8.214 ; 9.313  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 8.205 ; 9.329  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 8.283 ; 9.364  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 8.268 ; 9.366  ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 8.423 ; 9.545  ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 8.141 ; 9.354  ; Fall       ; clock_divider:d1|clk ;
-+-----------+----------------------+-------+--------+------------+----------------------+
++--------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                        ;
++-----------+----------------------+-------+-------+------------+----------------------+
+; Data Port ; Clock Port           ; Rise  ; Fall  ; Clock Edge ; Clock Reference      ;
++-----------+----------------------+-------+-------+------------+----------------------+
+; VGA_CLK   ; clock_divider:d1|clk ;       ; 5.081 ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 8.226 ; 9.092 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 8.297 ; 9.192 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 8.582 ; 9.553 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 8.580 ; 9.532 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 8.240 ; 9.092 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 8.524 ; 9.497 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 8.226 ; 9.096 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 8.271 ; 9.140 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 8.397 ; 9.309 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 5.236 ;       ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 8.716 ; 9.620 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 8.987 ; 9.897 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 8.975 ; 9.904 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 8.716 ; 9.620 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 8.848 ; 9.784 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 8.925 ; 9.865 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 8.896 ; 9.846 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 8.804 ; 9.784 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 8.827 ; 9.787 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 7.616 ; 8.620 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 8.308 ; 9.128 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 8.435 ; 9.314 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 8.394 ; 9.271 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 8.499 ; 9.258 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 8.374 ; 9.216 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 8.308 ; 9.128 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 8.585 ; 9.441 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 8.468 ; 9.306 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 8.463 ; 9.300 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 7.930 ; 9.069 ; Fall       ; clock_divider:d1|clk ;
++-----------+----------------------+-------+-------+------------+----------------------+
 
 
-+-----------------------------------------------------+
-; Propagation Delay                                   ;
-+------------+-------------+-------+----+----+--------+
-; Input Port ; Output Port ; RR    ; RF ; FR ; FF     ;
-+------------+-------------+-------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 5.508 ;    ;    ; 6.819  ;
-; KEY_N_0    ; VGA_B[0]    ; 9.147 ;    ;    ; 12.306 ;
-; KEY_N_0    ; VGA_B[1]    ; 9.166 ;    ;    ; 12.245 ;
-; KEY_N_0    ; VGA_B[2]    ; 9.163 ;    ;    ; 12.266 ;
-; KEY_N_0    ; VGA_B[3]    ; 9.172 ;    ;    ; 12.330 ;
-; KEY_N_0    ; VGA_B[4]    ; 9.318 ;    ;    ; 12.493 ;
-; KEY_N_0    ; VGA_B[5]    ; 9.022 ;    ;    ; 12.120 ;
-; KEY_N_0    ; VGA_B[6]    ; 9.120 ;    ;    ; 12.254 ;
-; KEY_N_0    ; VGA_B[7]    ; 9.123 ;    ;    ; 12.260 ;
-; KEY_N_0    ; VGA_G[0]    ; 9.512 ;    ;    ; 12.763 ;
-; KEY_N_0    ; VGA_G[1]    ; 9.500 ;    ;    ; 12.768 ;
-; KEY_N_0    ; VGA_G[2]    ; 9.348 ;    ;    ; 12.581 ;
-; KEY_N_0    ; VGA_G[3]    ; 9.486 ;    ;    ; 12.751 ;
-; KEY_N_0    ; VGA_G[4]    ; 9.483 ;    ;    ; 12.720 ;
-; KEY_N_0    ; VGA_G[5]    ; 9.469 ;    ;    ; 12.724 ;
-; KEY_N_0    ; VGA_G[6]    ; 9.333 ;    ;    ; 12.581 ;
-; KEY_N_0    ; VGA_G[7]    ; 9.342 ;    ;    ; 12.570 ;
-; KEY_N_0    ; VGA_R[0]    ; 8.936 ;    ;    ; 11.963 ;
-; KEY_N_0    ; VGA_R[1]    ; 8.895 ;    ;    ; 11.920 ;
-; KEY_N_0    ; VGA_R[2]    ; 9.244 ;    ;    ; 12.288 ;
-; KEY_N_0    ; VGA_R[3]    ; 9.003 ;    ;    ; 12.056 ;
-; KEY_N_0    ; VGA_R[4]    ; 8.987 ;    ;    ; 12.048 ;
-; KEY_N_0    ; VGA_R[5]    ; 9.073 ;    ;    ; 12.090 ;
-; KEY_N_0    ; VGA_R[6]    ; 9.058 ;    ;    ; 12.092 ;
-; KEY_N_0    ; VGA_R[7]    ; 9.225 ;    ;    ; 12.286 ;
-; KEY_N_1    ; LEDR[1]     ; 5.320 ;    ;    ; 6.541  ;
-; KEY_N_2    ; LEDR[2]     ; 5.539 ;    ;    ; 6.849  ;
-; KEY_N_3    ; LEDR[3]     ; 5.283 ;    ;    ; 6.948  ;
-+------------+-------------+-------+----+----+--------+
++------------------------------------------------------+
+; Propagation Delay                                    ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; KEY_N_0    ; LEDR[0]     ; 5.431  ;    ;    ; 6.678  ;
+; KEY_N_0    ; VGA_B[0]    ; 10.880 ;    ;    ; 14.964 ;
+; KEY_N_0    ; VGA_B[1]    ; 11.216 ;    ;    ; 15.439 ;
+; KEY_N_0    ; VGA_B[2]    ; 11.206 ;    ;    ; 15.381 ;
+; KEY_N_0    ; VGA_B[3]    ; 10.821 ;    ;    ; 14.851 ;
+; KEY_N_0    ; VGA_B[4]    ; 11.151 ;    ;    ; 15.365 ;
+; KEY_N_0    ; VGA_B[5]    ; 10.807 ;    ;    ; 14.854 ;
+; KEY_N_0    ; VGA_B[6]    ; 10.853 ;    ;    ; 14.912 ;
+; KEY_N_0    ; VGA_B[7]    ; 11.001 ;    ;    ; 15.128 ;
+; KEY_N_0    ; VGA_G[0]    ; 11.464 ;    ;    ; 15.629 ;
+; KEY_N_0    ; VGA_G[1]    ; 11.453 ;    ;    ; 15.636 ;
+; KEY_N_0    ; VGA_G[2]    ; 11.174 ;    ;    ; 15.336 ;
+; KEY_N_0    ; VGA_G[3]    ; 11.319 ;    ;    ; 15.515 ;
+; KEY_N_0    ; VGA_G[4]    ; 11.407 ;    ;    ; 15.619 ;
+; KEY_N_0    ; VGA_G[5]    ; 11.376 ;    ;    ; 15.597 ;
+; KEY_N_0    ; VGA_G[6]    ; 11.283 ;    ;    ; 15.547 ;
+; KEY_N_0    ; VGA_G[7]    ; 11.308 ;    ;    ; 15.556 ;
+; KEY_N_0    ; VGA_R[0]    ; 11.059 ;    ;    ; 15.246 ;
+; KEY_N_0    ; VGA_R[1]    ; 11.018 ;    ;    ; 15.203 ;
+; KEY_N_0    ; VGA_R[2]    ; 11.120 ;    ;    ; 15.168 ;
+; KEY_N_0    ; VGA_R[3]    ; 10.993 ;    ;    ; 15.140 ;
+; KEY_N_0    ; VGA_R[4]    ; 10.914 ;    ;    ; 15.016 ;
+; KEY_N_0    ; VGA_R[5]    ; 11.227 ;    ;    ; 15.401 ;
+; KEY_N_0    ; VGA_R[6]    ; 11.093 ;    ;    ; 15.230 ;
+; KEY_N_0    ; VGA_R[7]    ; 11.088 ;    ;    ; 15.222 ;
+; KEY_N_1    ; LEDR[1]     ; 5.435  ;    ;    ; 6.728  ;
+; KEY_N_2    ; LEDR[2]     ; 5.592  ;    ;    ; 6.967  ;
+; KEY_N_3    ; LEDR[3]     ; 5.280  ;    ;    ; 6.941  ;
++------------+-------------+--------+----+----+--------+
 
 
-+-----------------------------------------------------+
-; Minimum Propagation Delay                           ;
-+------------+-------------+-------+----+----+--------+
-; Input Port ; Output Port ; RR    ; RF ; FR ; FF     ;
-+------------+-------------+-------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 4.591 ;    ;    ; 5.715  ;
-; KEY_N_0    ; VGA_B[0]    ; 8.423 ;    ;    ; 11.195 ;
-; KEY_N_0    ; VGA_B[1]    ; 8.444 ;    ;    ; 11.153 ;
-; KEY_N_0    ; VGA_B[2]    ; 8.440 ;    ;    ; 11.173 ;
-; KEY_N_0    ; VGA_B[3]    ; 8.441 ;    ;    ; 11.209 ;
-; KEY_N_0    ; VGA_B[4]    ; 8.574 ;    ;    ; 11.354 ;
-; KEY_N_0    ; VGA_B[5]    ; 8.309 ;    ;    ; 11.037 ;
-; KEY_N_0    ; VGA_B[6]    ; 8.396 ;    ;    ; 11.143 ;
-; KEY_N_0    ; VGA_B[7]    ; 8.399 ;    ;    ; 11.148 ;
-; KEY_N_0    ; VGA_G[0]    ; 8.746 ;    ;    ; 11.553 ;
-; KEY_N_0    ; VGA_G[1]    ; 8.734 ;    ;    ; 11.559 ;
-; KEY_N_0    ; VGA_G[2]    ; 8.595 ;    ;    ; 11.386 ;
-; KEY_N_0    ; VGA_G[3]    ; 8.721 ;    ;    ; 11.543 ;
-; KEY_N_0    ; VGA_G[4]    ; 8.720 ;    ;    ; 11.515 ;
-; KEY_N_0    ; VGA_G[5]    ; 8.706 ;    ;    ; 11.518 ;
-; KEY_N_0    ; VGA_G[6]    ; 8.581 ;    ;    ; 11.387 ;
-; KEY_N_0    ; VGA_G[7]    ; 8.590 ;    ;    ; 11.376 ;
-; KEY_N_0    ; VGA_R[0]    ; 8.231 ;    ;    ; 10.900 ;
-; KEY_N_0    ; VGA_R[1]    ; 8.191 ;    ;    ; 10.858 ;
-; KEY_N_0    ; VGA_R[2]    ; 8.513 ;    ;    ; 11.197 ;
-; KEY_N_0    ; VGA_R[3]    ; 8.286 ;    ;    ; 10.963 ;
-; KEY_N_0    ; VGA_R[4]    ; 8.277 ;    ;    ; 10.979 ;
-; KEY_N_0    ; VGA_R[5]    ; 8.355 ;    ;    ; 11.014 ;
-; KEY_N_0    ; VGA_R[6]    ; 8.340 ;    ;    ; 11.016 ;
-; KEY_N_0    ; VGA_R[7]    ; 8.495 ;    ;    ; 11.195 ;
-; KEY_N_1    ; LEDR[1]     ; 4.426 ;    ;    ; 5.494  ;
-; KEY_N_2    ; LEDR[2]     ; 4.604 ;    ;    ; 5.713  ;
-; KEY_N_3    ; LEDR[3]     ; 4.826 ;    ;    ; 6.181  ;
-+------------+-------------+-------+----+----+--------+
++------------------------------------------------------+
+; Minimum Propagation Delay                            ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; KEY_N_0    ; LEDR[0]     ; 4.527  ;    ;    ; 5.618  ;
+; KEY_N_0    ; VGA_B[0]    ; 9.920  ;    ;    ; 13.428 ;
+; KEY_N_0    ; VGA_B[1]    ; 10.205 ;    ;    ; 13.789 ;
+; KEY_N_0    ; VGA_B[2]    ; 10.203 ;    ;    ; 13.768 ;
+; KEY_N_0    ; VGA_B[3]    ; 9.863  ;    ;    ; 13.328 ;
+; KEY_N_0    ; VGA_B[4]    ; 10.147 ;    ;    ; 13.733 ;
+; KEY_N_0    ; VGA_B[5]    ; 9.849  ;    ;    ; 13.332 ;
+; KEY_N_0    ; VGA_B[6]    ; 9.894  ;    ;    ; 13.376 ;
+; KEY_N_0    ; VGA_B[7]    ; 10.020 ;    ;    ; 13.545 ;
+; KEY_N_0    ; VGA_G[0]    ; 10.451 ;    ;    ; 13.995 ;
+; KEY_N_0    ; VGA_G[1]    ; 10.439 ;    ;    ; 14.002 ;
+; KEY_N_0    ; VGA_G[2]    ; 10.180 ;    ;    ; 13.718 ;
+; KEY_N_0    ; VGA_G[3]    ; 10.312 ;    ;    ; 13.882 ;
+; KEY_N_0    ; VGA_G[4]    ; 10.389 ;    ;    ; 13.963 ;
+; KEY_N_0    ; VGA_G[5]    ; 10.360 ;    ;    ; 13.944 ;
+; KEY_N_0    ; VGA_G[6]    ; 10.268 ;    ;    ; 13.882 ;
+; KEY_N_0    ; VGA_G[7]    ; 10.291 ;    ;    ; 13.885 ;
+; KEY_N_0    ; VGA_R[0]    ; 10.069 ;    ;    ; 13.646 ;
+; KEY_N_0    ; VGA_R[1]    ; 10.028 ;    ;    ; 13.603 ;
+; KEY_N_0    ; VGA_R[2]    ; 10.133 ;    ;    ; 13.590 ;
+; KEY_N_0    ; VGA_R[3]    ; 10.008 ;    ;    ; 13.548 ;
+; KEY_N_0    ; VGA_R[4]    ; 9.942  ;    ;    ; 13.460 ;
+; KEY_N_0    ; VGA_R[5]    ; 10.219 ;    ;    ; 13.773 ;
+; KEY_N_0    ; VGA_R[6]    ; 10.102 ;    ;    ; 13.638 ;
+; KEY_N_0    ; VGA_R[7]    ; 10.097 ;    ;    ; 13.632 ;
+; KEY_N_1    ; LEDR[1]     ; 4.532  ;    ;    ; 5.658  ;
+; KEY_N_2    ; LEDR[2]     ; 4.655  ;    ;    ; 5.817  ;
+; KEY_N_3    ; LEDR[3]     ; 4.822  ;    ;    ; 6.175  ;
++------------+-------------+--------+----+----+--------+
 
 
 ----------------------------------------------
@@ -877,10 +877,10 @@ No synchronizer chains to report.
 +------------------------------+---------+---------------+
 ; Clock                        ; Slack   ; End Point TNS ;
 +------------------------------+---------+---------------+
-; clock_divider_negedge:d3|clk ; -18.468 ; -11780.695    ;
-; clock_divider:d1|clk         ; -2.597  ; -273.495      ;
-; clock_divider:d2|clk         ; -2.505  ; -1019.111     ;
-; CLOCK_50                     ; -0.539  ; -3.856        ;
+; clock_divider_negedge:d3|clk ; -22.033 ; -16449.923    ;
+; clock_divider:d1|clk         ; -2.777  ; -253.752      ;
+; clock_divider:d2|clk         ; -2.533  ; -1127.243     ;
+; CLOCK_50                     ; -0.407  ; -3.400        ;
 +------------------------------+---------+---------------+
 
 
@@ -889,10 +889,10 @@ No synchronizer chains to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; CLOCK_50                     ; -1.020 ; -2.302        ;
-; clock_divider:d1|clk         ; -0.416 ; -31.624       ;
-; clock_divider:d2|clk         ; -0.374 ; -54.258       ;
-; clock_divider_negedge:d3|clk ; 0.142  ; 0.000         ;
+; CLOCK_50                     ; -1.428 ; -2.977        ;
+; clock_divider:d1|clk         ; -0.491 ; -26.603       ;
+; clock_divider:d2|clk         ; -0.453 ; -57.370       ;
+; clock_divider_negedge:d3|clk ; 0.143  ; 0.000         ;
 +------------------------------+--------+---------------+
 
 
@@ -913,10 +913,10 @@ No paths to report.
 +------------------------------+--------+---------------+
 ; Clock                        ; Slack  ; End Point TNS ;
 +------------------------------+--------+---------------+
-; clock_divider:d2|clk         ; -2.174 ; -2151.612     ;
-; clock_divider_negedge:d3|clk ; -2.174 ; -56.136       ;
-; CLOCK_50                     ; -0.901 ; -11.255       ;
-; clock_divider:d1|clk         ; 0.033  ; 0.000         ;
+; clock_divider:d2|clk         ; -2.174 ; -2144.284     ;
+; clock_divider_negedge:d3|clk ; -2.174 ; -55.830       ;
+; CLOCK_50                     ; -0.926 ; -11.317       ;
+; clock_divider:d1|clk         ; 0.032  ; 0.000         ;
 +------------------------------+--------+---------------+
 
 
@@ -925,13 +925,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; 2.208  ; 3.960  ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; 1.648  ; 3.400  ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 1.370  ; 3.074  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 2.996  ; 5.386  ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 11.220 ; 12.450 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 12.109 ; 13.259 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 12.525 ; 13.858 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; 4.660  ; 7.528  ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; 3.044  ; 5.314  ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 2.953  ; 5.076  ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; 4.113  ; 6.498  ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 13.124 ; 14.535 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 12.219 ; 14.207 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 11.782 ; 13.480 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -940,13 +940,13 @@ No paths to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; -1.165 ; -2.689 ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; -0.455 ; -2.050 ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 1.409  ; 0.123  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 0.301  ; -1.248 ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 1.288  ; 0.184  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 1.596  ; 0.482  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 1.135  ; -0.174 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; -3.444 ; -5.913 ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; -1.475 ; -3.557 ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; -0.570 ; -2.557 ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; -0.888 ; -3.007 ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 0.323  ; -1.259 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 0.719  ; -0.616 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 1.134  ; -0.085 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -955,37 +955,37 @@ No paths to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 5.917  ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 9.896  ; 11.308 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 9.767  ; 11.157 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 9.745  ; 11.079 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 9.746  ; 11.096 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 9.770  ; 11.163 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 9.896  ; 11.308 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 9.626  ; 10.966 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 9.714  ; 11.085 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 9.717  ; 11.092 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 6.082  ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 10.379 ; 11.872 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 10.379 ; 11.869 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 10.370 ; 11.872 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 10.236 ; 11.701 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 10.357 ; 11.857 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 10.348 ; 11.828 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 10.337 ; 11.830 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 10.225 ; 11.701 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 10.231 ; 11.693 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 9.010  ; 10.157 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 9.869  ; 11.111 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 9.620  ; 10.823 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 9.568  ; 10.772 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 9.869  ; 11.111 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 9.665  ; 10.898 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 9.684  ; 10.919 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 9.722  ; 10.929 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 9.710  ; 10.930 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 9.853  ; 11.108 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 9.195  ; 10.380 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 5.847  ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 10.184 ; 11.374 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 9.890  ; 10.958 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 10.184 ; 11.374 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 10.171 ; 11.321 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 9.817  ; 10.841 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 10.131 ; 11.308 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 9.806  ; 10.843 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 9.837  ; 10.887 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 9.981  ; 11.087 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 6.012  ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 10.549 ; 11.694 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 10.549 ; 11.689 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 10.541 ; 11.694 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 10.306 ; 11.425 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 10.431 ; 11.588 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 10.509 ; 11.683 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 10.479 ; 11.659 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 10.412 ; 11.618 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 10.437 ; 11.630 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 8.547  ; 9.536  ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 10.182 ; 11.317 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 10.049 ; 11.183 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 9.998  ; 11.131 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 10.053 ; 11.084 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 9.970  ; 11.075 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 9.931  ; 10.992 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 10.182 ; 11.317 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 10.058 ; 11.157 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 10.051 ; 11.149 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 8.873  ; 10.014 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
@@ -994,74 +994,74 @@ No paths to report.
 +-----------+----------------------+-------+-------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise  ; Fall  ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+-------+-------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;       ; 4.798 ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 7.761 ; 8.655 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 7.892 ; 8.825 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 7.872 ; 8.760 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 7.872 ; 8.776 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 7.888 ; 8.822 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 8.002 ; 8.953 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 7.761 ; 8.655 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 7.839 ; 8.754 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 7.841 ; 8.760 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 4.914 ;       ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 8.195 ; 9.264 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 8.338 ; 9.426 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 8.329 ; 9.430 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 8.206 ; 9.272 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 8.317 ; 9.415 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 8.310 ; 9.390 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 8.299 ; 9.391 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 8.195 ; 9.272 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 8.201 ; 9.264 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 7.540 ; 8.512 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 7.648 ; 8.573 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 7.699 ; 8.624 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 7.648 ; 8.573 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 7.926 ; 8.885 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 7.734 ; 8.676 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 7.759 ; 8.713 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 7.791 ; 8.718 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 7.779 ; 8.719 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 7.911 ; 8.882 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 7.709 ; 8.731 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;       ; 4.744 ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 7.747 ; 8.463 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 7.830 ; 8.567 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 8.076 ; 8.902 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 8.070 ; 8.873 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 7.758 ; 8.463 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 8.028 ; 8.848 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 7.747 ; 8.464 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 7.777 ; 8.496 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 7.900 ; 8.665 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 4.879 ;       ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 8.189 ; 8.964 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 8.417 ; 9.213 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 8.408 ; 9.218 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 8.189 ; 8.964 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 8.303 ; 9.113 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 8.372 ; 9.191 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 8.344 ; 9.171 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 8.276 ; 9.115 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 8.298 ; 9.121 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 7.146 ; 7.990 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 7.849 ; 8.530 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 7.951 ; 8.687 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 7.900 ; 8.635 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 7.960 ; 8.606 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 7.876 ; 8.586 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 7.849 ; 8.530 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 8.067 ; 8.800 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 7.959 ; 8.667 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 7.952 ; 8.660 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 7.429 ; 8.401 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+-------+-------+------------+----------------------+
 
 
-+-----------------------------------------------------+
-; Propagation Delay                                   ;
-+------------+-------------+-------+----+----+--------+
-; Input Port ; Output Port ; RR    ; RF ; FR ; FF     ;
-+------------+-------------+-------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 5.225 ;    ;    ; 6.500  ;
-; KEY_N_0    ; VGA_B[0]    ; 8.726 ;    ;    ; 11.571 ;
-; KEY_N_0    ; VGA_B[1]    ; 8.704 ;    ;    ; 11.493 ;
-; KEY_N_0    ; VGA_B[2]    ; 8.705 ;    ;    ; 11.510 ;
-; KEY_N_0    ; VGA_B[3]    ; 8.729 ;    ;    ; 11.577 ;
-; KEY_N_0    ; VGA_B[4]    ; 8.855 ;    ;    ; 11.722 ;
-; KEY_N_0    ; VGA_B[5]    ; 8.585 ;    ;    ; 11.380 ;
-; KEY_N_0    ; VGA_B[6]    ; 8.673 ;    ;    ; 11.499 ;
-; KEY_N_0    ; VGA_B[7]    ; 8.676 ;    ;    ; 11.506 ;
-; KEY_N_0    ; VGA_G[0]    ; 9.035 ;    ;    ; 11.985 ;
-; KEY_N_0    ; VGA_G[1]    ; 9.026 ;    ;    ; 11.988 ;
-; KEY_N_0    ; VGA_G[2]    ; 8.892 ;    ;    ; 11.817 ;
-; KEY_N_0    ; VGA_G[3]    ; 9.013 ;    ;    ; 11.973 ;
-; KEY_N_0    ; VGA_G[4]    ; 9.004 ;    ;    ; 11.944 ;
-; KEY_N_0    ; VGA_G[5]    ; 8.993 ;    ;    ; 11.946 ;
-; KEY_N_0    ; VGA_G[6]    ; 8.881 ;    ;    ; 11.817 ;
-; KEY_N_0    ; VGA_G[7]    ; 8.887 ;    ;    ; 11.809 ;
-; KEY_N_0    ; VGA_R[0]    ; 8.522 ;    ;    ; 11.246 ;
-; KEY_N_0    ; VGA_R[1]    ; 8.470 ;    ;    ; 11.195 ;
-; KEY_N_0    ; VGA_R[2]    ; 8.771 ;    ;    ; 11.534 ;
-; KEY_N_0    ; VGA_R[3]    ; 8.567 ;    ;    ; 11.321 ;
-; KEY_N_0    ; VGA_R[4]    ; 8.586 ;    ;    ; 11.342 ;
-; KEY_N_0    ; VGA_R[5]    ; 8.624 ;    ;    ; 11.352 ;
-; KEY_N_0    ; VGA_R[6]    ; 8.612 ;    ;    ; 11.353 ;
-; KEY_N_0    ; VGA_R[7]    ; 8.755 ;    ;    ; 11.531 ;
-; KEY_N_1    ; LEDR[1]     ; 5.007 ;    ;    ; 6.212  ;
-; KEY_N_2    ; LEDR[2]     ; 5.251 ;    ;    ; 6.528  ;
-; KEY_N_3    ; LEDR[3]     ; 4.963 ;    ;    ; 6.558  ;
-+------------+-------------+-------+----+----+--------+
++------------------------------------------------------+
+; Propagation Delay                                    ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; KEY_N_0    ; LEDR[0]     ; 5.154  ;    ;    ; 6.374  ;
+; KEY_N_0    ; VGA_B[0]    ; 10.481 ;    ;    ; 14.114 ;
+; KEY_N_0    ; VGA_B[1]    ; 10.775 ;    ;    ; 14.530 ;
+; KEY_N_0    ; VGA_B[2]    ; 10.762 ;    ;    ; 14.477 ;
+; KEY_N_0    ; VGA_B[3]    ; 10.408 ;    ;    ; 13.997 ;
+; KEY_N_0    ; VGA_B[4]    ; 10.722 ;    ;    ; 14.464 ;
+; KEY_N_0    ; VGA_B[5]    ; 10.397 ;    ;    ; 13.999 ;
+; KEY_N_0    ; VGA_B[6]    ; 10.428 ;    ;    ; 14.043 ;
+; KEY_N_0    ; VGA_B[7]    ; 10.572 ;    ;    ; 14.243 ;
+; KEY_N_0    ; VGA_G[0]    ; 10.962 ;    ;    ; 14.697 ;
+; KEY_N_0    ; VGA_G[1]    ; 10.954 ;    ;    ; 14.702 ;
+; KEY_N_0    ; VGA_G[2]    ; 10.719 ;    ;    ; 14.433 ;
+; KEY_N_0    ; VGA_G[3]    ; 10.844 ;    ;    ; 14.596 ;
+; KEY_N_0    ; VGA_G[4]    ; 10.922 ;    ;    ; 14.691 ;
+; KEY_N_0    ; VGA_G[5]    ; 10.892 ;    ;    ; 14.667 ;
+; KEY_N_0    ; VGA_G[6]    ; 10.825 ;    ;    ; 14.626 ;
+; KEY_N_0    ; VGA_G[7]    ; 10.850 ;    ;    ; 14.638 ;
+; KEY_N_0    ; VGA_R[0]    ; 10.641 ;    ;    ; 14.367 ;
+; KEY_N_0    ; VGA_R[1]    ; 10.590 ;    ;    ; 14.315 ;
+; KEY_N_0    ; VGA_R[2]    ; 10.645 ;    ;    ; 14.268 ;
+; KEY_N_0    ; VGA_R[3]    ; 10.562 ;    ;    ; 14.259 ;
+; KEY_N_0    ; VGA_R[4]    ; 10.523 ;    ;    ; 14.176 ;
+; KEY_N_0    ; VGA_R[5]    ; 10.774 ;    ;    ; 14.501 ;
+; KEY_N_0    ; VGA_R[6]    ; 10.650 ;    ;    ; 14.341 ;
+; KEY_N_0    ; VGA_R[7]    ; 10.643 ;    ;    ; 14.333 ;
+; KEY_N_1    ; LEDR[1]     ; 5.142  ;    ;    ; 6.398  ;
+; KEY_N_2    ; LEDR[2]     ; 5.313  ;    ;    ; 6.642  ;
+; KEY_N_3    ; LEDR[3]     ; 4.961  ;    ;    ; 6.552  ;
++------------+-------------+--------+----+----+--------+
 
 
 +-----------------------------------------------------+
@@ -1069,34 +1069,34 @@ No paths to report.
 +------------+-------------+-------+----+----+--------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF     ;
 +------------+-------------+-------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 4.314 ;    ;    ; 5.448  ;
-; KEY_N_0    ; VGA_B[0]    ; 8.020 ;    ;    ; 10.549 ;
-; KEY_N_0    ; VGA_B[1]    ; 8.000 ;    ;    ; 10.484 ;
-; KEY_N_0    ; VGA_B[2]    ; 8.000 ;    ;    ; 10.500 ;
-; KEY_N_0    ; VGA_B[3]    ; 8.016 ;    ;    ; 10.546 ;
-; KEY_N_0    ; VGA_B[4]    ; 8.130 ;    ;    ; 10.677 ;
-; KEY_N_0    ; VGA_B[5]    ; 7.889 ;    ;    ; 10.379 ;
-; KEY_N_0    ; VGA_B[6]    ; 7.967 ;    ;    ; 10.478 ;
-; KEY_N_0    ; VGA_B[7]    ; 7.969 ;    ;    ; 10.484 ;
-; KEY_N_0    ; VGA_G[0]    ; 8.291 ;    ;    ; 10.856 ;
-; KEY_N_0    ; VGA_G[1]    ; 8.282 ;    ;    ; 10.860 ;
-; KEY_N_0    ; VGA_G[2]    ; 8.159 ;    ;    ; 10.702 ;
-; KEY_N_0    ; VGA_G[3]    ; 8.270 ;    ;    ; 10.845 ;
-; KEY_N_0    ; VGA_G[4]    ; 8.263 ;    ;    ; 10.820 ;
-; KEY_N_0    ; VGA_G[5]    ; 8.252 ;    ;    ; 10.821 ;
-; KEY_N_0    ; VGA_G[6]    ; 8.148 ;    ;    ; 10.702 ;
-; KEY_N_0    ; VGA_G[7]    ; 8.154 ;    ;    ; 10.694 ;
-; KEY_N_0    ; VGA_R[0]    ; 7.832 ;    ;    ; 10.265 ;
-; KEY_N_0    ; VGA_R[1]    ; 7.781 ;    ;    ; 10.214 ;
-; KEY_N_0    ; VGA_R[2]    ; 8.059 ;    ;    ; 10.526 ;
-; KEY_N_0    ; VGA_R[3]    ; 7.867 ;    ;    ; 10.317 ;
-; KEY_N_0    ; VGA_R[4]    ; 7.892 ;    ;    ; 10.354 ;
-; KEY_N_0    ; VGA_R[5]    ; 7.924 ;    ;    ; 10.359 ;
-; KEY_N_0    ; VGA_R[6]    ; 7.912 ;    ;    ; 10.360 ;
-; KEY_N_0    ; VGA_R[7]    ; 8.044 ;    ;    ; 10.523 ;
-; KEY_N_1    ; LEDR[1]     ; 4.119 ;    ;    ; 5.213  ;
-; KEY_N_2    ; LEDR[2]     ; 4.323 ;    ;    ; 5.443  ;
-; KEY_N_3    ; LEDR[3]     ; 4.515 ;    ;    ; 5.866  ;
+; KEY_N_0    ; LEDR[0]     ; 4.255 ;    ;    ; 5.354  ;
+; KEY_N_0    ; VGA_B[0]    ; 9.547 ;    ;    ; 12.682 ;
+; KEY_N_0    ; VGA_B[1]    ; 9.793 ;    ;    ; 13.017 ;
+; KEY_N_0    ; VGA_B[2]    ; 9.787 ;    ;    ; 12.988 ;
+; KEY_N_0    ; VGA_B[3]    ; 9.475 ;    ;    ; 12.578 ;
+; KEY_N_0    ; VGA_B[4]    ; 9.745 ;    ;    ; 12.963 ;
+; KEY_N_0    ; VGA_B[5]    ; 9.464 ;    ;    ; 12.579 ;
+; KEY_N_0    ; VGA_B[6]    ; 9.494 ;    ;    ; 12.611 ;
+; KEY_N_0    ; VGA_B[7]    ; 9.617 ;    ;    ; 12.780 ;
+; KEY_N_0    ; VGA_G[0]    ; 9.981 ;    ;    ; 13.193 ;
+; KEY_N_0    ; VGA_G[1]    ; 9.972 ;    ;    ; 13.198 ;
+; KEY_N_0    ; VGA_G[2]    ; 9.753 ;    ;    ; 12.944 ;
+; KEY_N_0    ; VGA_G[3]    ; 9.867 ;    ;    ; 13.093 ;
+; KEY_N_0    ; VGA_G[4]    ; 9.936 ;    ;    ; 13.171 ;
+; KEY_N_0    ; VGA_G[5]    ; 9.908 ;    ;    ; 13.151 ;
+; KEY_N_0    ; VGA_G[6]    ; 9.840 ;    ;    ; 13.095 ;
+; KEY_N_0    ; VGA_G[7]    ; 9.862 ;    ;    ; 13.101 ;
+; KEY_N_0    ; VGA_R[0]    ; 9.678 ;    ;    ; 12.890 ;
+; KEY_N_0    ; VGA_R[1]    ; 9.627 ;    ;    ; 12.838 ;
+; KEY_N_0    ; VGA_R[2]    ; 9.687 ;    ;    ; 12.809 ;
+; KEY_N_0    ; VGA_R[3]    ; 9.603 ;    ;    ; 12.789 ;
+; KEY_N_0    ; VGA_R[4]    ; 9.576 ;    ;    ; 12.733 ;
+; KEY_N_0    ; VGA_R[5]    ; 9.794 ;    ;    ; 13.003 ;
+; KEY_N_0    ; VGA_R[6]    ; 9.686 ;    ;    ; 12.870 ;
+; KEY_N_0    ; VGA_R[7]    ; 9.679 ;    ;    ; 12.863 ;
+; KEY_N_1    ; LEDR[1]     ; 4.243 ;    ;    ; 5.382  ;
+; KEY_N_2    ; LEDR[2]     ; 4.380 ;    ;    ; 5.543  ;
+; KEY_N_3    ; LEDR[3]     ; 4.514 ;    ;    ; 5.860  ;
 +------------+-------------+-------+----+----+--------+
 
 
@@ -1106,22 +1106,22 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+--------------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                              ;
-+-------------------------------+------------+----------+----------+---------+---------------------+
-; Clock                         ; Setup      ; Hold     ; Recovery ; Removal ; Minimum Pulse Width ;
-+-------------------------------+------------+----------+----------+---------+---------------------+
-; Worst-case Slack              ; -36.279    ; -1.470   ; N/A      ; N/A     ; -2.174              ;
-;  CLOCK_50                     ; -1.826     ; -1.470   ; N/A      ; N/A     ; -0.901              ;
-;  clock_divider:d1|clk         ; -5.103     ; -0.813   ; N/A      ; N/A     ; -0.394              ;
-;  clock_divider:d2|clk         ; -5.105     ; -0.577   ; N/A      ; N/A     ; -2.174              ;
-;  clock_divider_negedge:d3|clk ; -36.279    ; 0.138    ; N/A      ; N/A     ; -2.174              ;
-; Design-wide TNS               ; -25506.11  ; -148.594 ; 0.0      ; 0.0     ; -2789.907           ;
-;  CLOCK_50                     ; -16.494    ; -4.307   ; N/A      ; N/A     ; -11.876             ;
-;  clock_divider:d1|clk         ; -570.985   ; -67.364  ; N/A      ; N/A     ; -80.548             ;
-;  clock_divider:d2|clk         ; -2174.307  ; -91.503  ; N/A      ; N/A     ; -2159.740           ;
-;  clock_divider_negedge:d3|clk ; -22803.863 ; 0.000    ; N/A      ; N/A     ; -537.743            ;
-+-------------------------------+------------+----------+----------+---------+---------------------+
++-------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                             ;
++-------------------------------+------------+---------+----------+---------+---------------------+
+; Clock                         ; Setup      ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------------------+------------+---------+----------+---------+---------------------+
+; Worst-case Slack              ; -46.017    ; -1.809  ; N/A      ; N/A     ; -2.174              ;
+;  CLOCK_50                     ; -1.611     ; -1.809  ; N/A      ; N/A     ; -0.926              ;
+;  clock_divider:d1|clk         ; -5.308     ; -1.021  ; N/A      ; N/A     ; -0.394              ;
+;  clock_divider:d2|clk         ; -5.371     ; -0.695  ; N/A      ; N/A     ; -2.174              ;
+;  clock_divider_negedge:d3|clk ; -46.017    ; 0.138   ; N/A      ; N/A     ; -2.174              ;
+; Design-wide TNS               ; -35944.798 ; -144.08 ; 0.0      ; 0.0     ; -2907.409           ;
+;  CLOCK_50                     ; -15.563    ; -4.821  ; N/A      ; N/A     ; -12.032             ;
+;  clock_divider:d1|clk         ; -536.365   ; -66.376 ; N/A      ; N/A     ; -74.154             ;
+;  clock_divider:d2|clk         ; -2358.841  ; -88.664 ; N/A      ; N/A     ; -2144.284           ;
+;  clock_divider_negedge:d3|clk ; -33087.168 ; 0.000   ; N/A      ; N/A     ; -678.409            ;
++-------------------------------+------------+---------+----------+---------+---------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -1129,13 +1129,13 @@ No synchronizer chains to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; 3.321  ; 5.061  ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; 3.470  ; 5.183  ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 2.477  ; 4.184  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 5.033  ; 7.544  ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 21.263 ; 22.344 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 22.386 ; 23.289 ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 23.308 ; 24.540 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; 6.693  ; 9.895  ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; 5.377  ; 7.789  ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 4.738  ; 6.982  ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; 6.395  ; 8.962  ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 24.886 ; 26.261 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 23.462 ; 25.289 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 22.793 ; 23.518 ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -1144,13 +1144,13 @@ No synchronizer chains to report.
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 ; Data Port ; Clock Port                   ; Rise   ; Fall   ; Clock Edge ; Clock Reference              ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
-; KEY_N_0   ; CLOCK_50                     ; -1.109 ; -2.689 ; Rise       ; CLOCK_50                     ;
-; KEY_N_0   ; CLOCK_50                     ; -0.441 ; -2.050 ; Fall       ; CLOCK_50                     ;
-; KEY_N_0   ; clock_divider:d1|clk         ; 2.526  ; 1.440  ; Fall       ; clock_divider:d1|clk         ;
-; KEY_N_0   ; clock_divider:d2|clk         ; 0.692  ; -0.703 ; Fall       ; clock_divider:d2|clk         ;
-; KEY_N_1   ; clock_divider_negedge:d3|clk ; 2.349  ; 1.264  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_2   ; clock_divider_negedge:d3|clk ; 2.725  ; 1.891  ; Fall       ; clock_divider_negedge:d3|clk ;
-; KEY_N_3   ; clock_divider_negedge:d3|clk ; 2.165  ; 1.071  ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_0   ; CLOCK_50                     ; -3.330 ; -5.913 ; Rise       ; CLOCK_50                     ;
+; KEY_N_0   ; CLOCK_50                     ; -1.416 ; -3.557 ; Fall       ; CLOCK_50                     ;
+; KEY_N_0   ; clock_divider:d1|clk         ; 0.090  ; -1.948 ; Fall       ; clock_divider:d1|clk         ;
+; KEY_N_0   ; clock_divider:d2|clk         ; -0.722 ; -2.911 ; Fall       ; clock_divider:d2|clk         ;
+; KEY_N_1   ; clock_divider_negedge:d3|clk ; 1.074  ; -0.413 ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_2   ; clock_divider_negedge:d3|clk ; 1.607  ; 0.472  ; Fall       ; clock_divider_negedge:d3|clk ;
+; KEY_N_3   ; clock_divider_negedge:d3|clk ; 2.195  ; 1.219  ; Fall       ; clock_divider_negedge:d3|clk ;
 +-----------+------------------------------+--------+--------+------------+------------------------------+
 
 
@@ -1159,37 +1159,37 @@ No synchronizer chains to report.
 +-----------+----------------------+--------+--------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise   ; Fall   ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+--------+--------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;        ; 10.302 ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 16.502 ; 18.331 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 16.296 ; 18.135 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 16.285 ; 18.005 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 16.276 ; 18.024 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 16.268 ; 18.107 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 16.502 ; 18.331 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 16.037 ; 17.812 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 16.205 ; 18.018 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 16.207 ; 18.028 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 10.312 ;        ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 17.308 ; 19.110 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 17.308 ; 19.106 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 17.292 ; 19.110 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 17.027 ; 18.832 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 17.272 ; 19.087 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 17.266 ; 19.047 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 17.248 ; 19.050 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 17.010 ; 18.833 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 17.022 ; 18.822 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 14.926 ; 16.438 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 16.464 ; 18.069 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 15.976 ; 17.618 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 15.894 ; 17.533 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 16.464 ; 18.069 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 16.062 ; 17.732 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 16.064 ; 17.742 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 16.186 ; 17.786 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 16.167 ; 17.787 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 16.442 ; 18.066 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 15.100 ; 16.630 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;        ; 10.270 ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 16.832 ; 18.531 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 16.397 ; 17.962 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 16.832 ; 18.531 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 16.809 ; 18.443 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 16.210 ; 17.706 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 16.713 ; 18.408 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 16.192 ; 17.708 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 16.305 ; 17.844 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 16.503 ; 18.109 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 10.332 ;        ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 17.502 ; 19.064 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 17.502 ; 19.058 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 17.487 ; 19.064 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 16.998 ; 18.615 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 17.252 ; 18.885 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 17.397 ; 19.041 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 17.356 ; 19.010 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 17.183 ; 18.923 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 17.214 ; 18.927 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 14.506 ; 15.769 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 16.878 ; 18.471 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 16.640 ; 18.275 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 16.556 ; 18.191 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 16.740 ; 18.161 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 16.523 ; 18.115 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 16.405 ; 17.948 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 16.878 ; 18.471 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 16.678 ; 18.231 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 16.671 ; 18.222 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 15.035 ; 16.471 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+--------+--------+------------+----------------------+
 
 
@@ -1198,37 +1198,37 @@ No synchronizer chains to report.
 +-----------+----------------------+-------+-------+------------+----------------------+
 ; Data Port ; Clock Port           ; Rise  ; Fall  ; Clock Edge ; Clock Reference      ;
 +-----------+----------------------+-------+-------+------------+----------------------+
-; VGA_CLK   ; clock_divider:d1|clk ;       ; 4.798 ; Rise       ; clock_divider:d1|clk ;
-; VGA_B[*]  ; clock_divider:d1|clk ; 7.761 ; 8.655 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[0] ; clock_divider:d1|clk ; 7.892 ; 8.825 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[1] ; clock_divider:d1|clk ; 7.872 ; 8.760 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[2] ; clock_divider:d1|clk ; 7.872 ; 8.776 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[3] ; clock_divider:d1|clk ; 7.888 ; 8.822 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[4] ; clock_divider:d1|clk ; 8.002 ; 8.953 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[5] ; clock_divider:d1|clk ; 7.761 ; 8.655 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[6] ; clock_divider:d1|clk ; 7.839 ; 8.754 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_B[7] ; clock_divider:d1|clk ; 7.841 ; 8.760 ; Fall       ; clock_divider:d1|clk ;
-; VGA_CLK   ; clock_divider:d1|clk ; 4.914 ;       ; Fall       ; clock_divider:d1|clk ;
-; VGA_G[*]  ; clock_divider:d1|clk ; 8.195 ; 9.264 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[0] ; clock_divider:d1|clk ; 8.338 ; 9.426 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[1] ; clock_divider:d1|clk ; 8.329 ; 9.430 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[2] ; clock_divider:d1|clk ; 8.206 ; 9.272 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[3] ; clock_divider:d1|clk ; 8.317 ; 9.415 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[4] ; clock_divider:d1|clk ; 8.310 ; 9.390 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[5] ; clock_divider:d1|clk ; 8.299 ; 9.391 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[6] ; clock_divider:d1|clk ; 8.195 ; 9.272 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_G[7] ; clock_divider:d1|clk ; 8.201 ; 9.264 ; Fall       ; clock_divider:d1|clk ;
-; VGA_HS    ; clock_divider:d1|clk ; 7.540 ; 8.512 ; Fall       ; clock_divider:d1|clk ;
-; VGA_R[*]  ; clock_divider:d1|clk ; 7.648 ; 8.573 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[0] ; clock_divider:d1|clk ; 7.699 ; 8.624 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[1] ; clock_divider:d1|clk ; 7.648 ; 8.573 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[2] ; clock_divider:d1|clk ; 7.926 ; 8.885 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[3] ; clock_divider:d1|clk ; 7.734 ; 8.676 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[4] ; clock_divider:d1|clk ; 7.759 ; 8.713 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[5] ; clock_divider:d1|clk ; 7.791 ; 8.718 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[6] ; clock_divider:d1|clk ; 7.779 ; 8.719 ; Fall       ; clock_divider:d1|clk ;
-;  VGA_R[7] ; clock_divider:d1|clk ; 7.911 ; 8.882 ; Fall       ; clock_divider:d1|clk ;
-; VGA_VS    ; clock_divider:d1|clk ; 7.709 ; 8.731 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ;       ; 4.744 ; Rise       ; clock_divider:d1|clk ;
+; VGA_B[*]  ; clock_divider:d1|clk ; 7.747 ; 8.463 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[0] ; clock_divider:d1|clk ; 7.830 ; 8.567 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[1] ; clock_divider:d1|clk ; 8.076 ; 8.902 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[2] ; clock_divider:d1|clk ; 8.070 ; 8.873 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[3] ; clock_divider:d1|clk ; 7.758 ; 8.463 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[4] ; clock_divider:d1|clk ; 8.028 ; 8.848 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[5] ; clock_divider:d1|clk ; 7.747 ; 8.464 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[6] ; clock_divider:d1|clk ; 7.777 ; 8.496 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_B[7] ; clock_divider:d1|clk ; 7.900 ; 8.665 ; Fall       ; clock_divider:d1|clk ;
+; VGA_CLK   ; clock_divider:d1|clk ; 4.879 ;       ; Fall       ; clock_divider:d1|clk ;
+; VGA_G[*]  ; clock_divider:d1|clk ; 8.189 ; 8.964 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[0] ; clock_divider:d1|clk ; 8.417 ; 9.213 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[1] ; clock_divider:d1|clk ; 8.408 ; 9.218 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[2] ; clock_divider:d1|clk ; 8.189 ; 8.964 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[3] ; clock_divider:d1|clk ; 8.303 ; 9.113 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[4] ; clock_divider:d1|clk ; 8.372 ; 9.191 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[5] ; clock_divider:d1|clk ; 8.344 ; 9.171 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[6] ; clock_divider:d1|clk ; 8.276 ; 9.115 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_G[7] ; clock_divider:d1|clk ; 8.298 ; 9.121 ; Fall       ; clock_divider:d1|clk ;
+; VGA_HS    ; clock_divider:d1|clk ; 7.146 ; 7.990 ; Fall       ; clock_divider:d1|clk ;
+; VGA_R[*]  ; clock_divider:d1|clk ; 7.849 ; 8.530 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[0] ; clock_divider:d1|clk ; 7.951 ; 8.687 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[1] ; clock_divider:d1|clk ; 7.900 ; 8.635 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[2] ; clock_divider:d1|clk ; 7.960 ; 8.606 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[3] ; clock_divider:d1|clk ; 7.876 ; 8.586 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[4] ; clock_divider:d1|clk ; 7.849 ; 8.530 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[5] ; clock_divider:d1|clk ; 8.067 ; 8.800 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[6] ; clock_divider:d1|clk ; 7.959 ; 8.667 ; Fall       ; clock_divider:d1|clk ;
+;  VGA_R[7] ; clock_divider:d1|clk ; 7.952 ; 8.660 ; Fall       ; clock_divider:d1|clk ;
+; VGA_VS    ; clock_divider:d1|clk ; 7.429 ; 8.401 ; Fall       ; clock_divider:d1|clk ;
 +-----------+----------------------+-------+-------+------------+----------------------+
 
 
@@ -1237,34 +1237,34 @@ No synchronizer chains to report.
 +------------+-------------+--------+----+----+--------+
 ; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
 +------------+-------------+--------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 8.928  ;    ;    ; 10.024 ;
-; KEY_N_0    ; VGA_B[0]    ; 14.181 ;    ;    ; 17.282 ;
-; KEY_N_0    ; VGA_B[1]    ; 14.170 ;    ;    ; 17.152 ;
-; KEY_N_0    ; VGA_B[2]    ; 14.161 ;    ;    ; 17.171 ;
-; KEY_N_0    ; VGA_B[3]    ; 14.153 ;    ;    ; 17.254 ;
-; KEY_N_0    ; VGA_B[4]    ; 14.387 ;    ;    ; 17.478 ;
-; KEY_N_0    ; VGA_B[5]    ; 13.922 ;    ;    ; 16.959 ;
-; KEY_N_0    ; VGA_B[6]    ; 14.090 ;    ;    ; 17.165 ;
-; KEY_N_0    ; VGA_B[7]    ; 14.092 ;    ;    ; 17.175 ;
-; KEY_N_0    ; VGA_G[0]    ; 14.615 ;    ;    ; 17.804 ;
-; KEY_N_0    ; VGA_G[1]    ; 14.599 ;    ;    ; 17.808 ;
-; KEY_N_0    ; VGA_G[2]    ; 14.334 ;    ;    ; 17.530 ;
-; KEY_N_0    ; VGA_G[3]    ; 14.579 ;    ;    ; 17.785 ;
-; KEY_N_0    ; VGA_G[4]    ; 14.573 ;    ;    ; 17.745 ;
-; KEY_N_0    ; VGA_G[5]    ; 14.555 ;    ;    ; 17.748 ;
-; KEY_N_0    ; VGA_G[6]    ; 14.317 ;    ;    ; 17.531 ;
-; KEY_N_0    ; VGA_G[7]    ; 14.329 ;    ;    ; 17.520 ;
-; KEY_N_0    ; VGA_R[0]    ; 13.839 ;    ;    ; 16.776 ;
-; KEY_N_0    ; VGA_R[1]    ; 13.757 ;    ;    ; 16.691 ;
-; KEY_N_0    ; VGA_R[2]    ; 14.327 ;    ;    ; 17.227 ;
-; KEY_N_0    ; VGA_R[3]    ; 13.925 ;    ;    ; 16.890 ;
-; KEY_N_0    ; VGA_R[4]    ; 13.927 ;    ;    ; 16.900 ;
-; KEY_N_0    ; VGA_R[5]    ; 14.049 ;    ;    ; 16.944 ;
-; KEY_N_0    ; VGA_R[6]    ; 14.030 ;    ;    ; 16.945 ;
-; KEY_N_0    ; VGA_R[7]    ; 14.305 ;    ;    ; 17.224 ;
-; KEY_N_1    ; LEDR[1]     ; 8.659  ;    ;    ; 9.640  ;
-; KEY_N_2    ; LEDR[2]     ; 8.957  ;    ;    ; 10.017 ;
-; KEY_N_3    ; LEDR[3]     ; 8.222  ;    ;    ; 9.735  ;
+; KEY_N_0    ; LEDR[0]     ; 8.806  ;    ;    ; 9.826  ;
+; KEY_N_0    ; VGA_B[0]    ; 16.458 ;    ;    ; 20.664 ;
+; KEY_N_0    ; VGA_B[1]    ; 16.893 ;    ;    ; 21.223 ;
+; KEY_N_0    ; VGA_B[2]    ; 16.870 ;    ;    ; 21.132 ;
+; KEY_N_0    ; VGA_B[3]    ; 16.271 ;    ;    ; 20.404 ;
+; KEY_N_0    ; VGA_B[4]    ; 16.774 ;    ;    ; 21.102 ;
+; KEY_N_0    ; VGA_B[5]    ; 16.253 ;    ;    ; 20.404 ;
+; KEY_N_0    ; VGA_B[6]    ; 16.366 ;    ;    ; 20.542 ;
+; KEY_N_0    ; VGA_B[7]    ; 16.564 ;    ;    ; 20.806 ;
+; KEY_N_0    ; VGA_G[0]    ; 17.185 ;    ;    ; 21.335 ;
+; KEY_N_0    ; VGA_G[1]    ; 17.170 ;    ;    ; 21.339 ;
+; KEY_N_0    ; VGA_G[2]    ; 16.681 ;    ;    ; 20.911 ;
+; KEY_N_0    ; VGA_G[3]    ; 16.935 ;    ;    ; 21.173 ;
+; KEY_N_0    ; VGA_G[4]    ; 17.080 ;    ;    ; 21.326 ;
+; KEY_N_0    ; VGA_G[5]    ; 17.039 ;    ;    ; 21.290 ;
+; KEY_N_0    ; VGA_G[6]    ; 16.866 ;    ;    ; 21.232 ;
+; KEY_N_0    ; VGA_G[7]    ; 16.897 ;    ;    ; 21.238 ;
+; KEY_N_0    ; VGA_R[0]    ; 16.702 ;    ;    ; 21.000 ;
+; KEY_N_0    ; VGA_R[1]    ; 16.618 ;    ;    ; 20.913 ;
+; KEY_N_0    ; VGA_R[2]    ; 16.802 ;    ;    ; 20.843 ;
+; KEY_N_0    ; VGA_R[3]    ; 16.585 ;    ;    ; 20.839 ;
+; KEY_N_0    ; VGA_R[4]    ; 16.467 ;    ;    ; 20.681 ;
+; KEY_N_0    ; VGA_R[5]    ; 16.940 ;    ;    ; 21.191 ;
+; KEY_N_0    ; VGA_R[6]    ; 16.740 ;    ;    ; 20.949 ;
+; KEY_N_0    ; VGA_R[7]    ; 16.733 ;    ;    ; 20.938 ;
+; KEY_N_1    ; LEDR[1]     ; 8.773  ;    ;    ; 9.846  ;
+; KEY_N_2    ; LEDR[2]     ; 9.028  ;    ;    ; 10.186 ;
+; KEY_N_3    ; LEDR[3]     ; 8.217  ;    ;    ; 9.726  ;
 +------------+-------------+--------+----+----+--------+
 
 
@@ -1273,34 +1273,34 @@ No synchronizer chains to report.
 +------------+-------------+-------+----+----+--------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF     ;
 +------------+-------------+-------+----+----+--------+
-; KEY_N_0    ; LEDR[0]     ; 4.314 ;    ;    ; 5.448  ;
-; KEY_N_0    ; VGA_B[0]    ; 8.020 ;    ;    ; 10.549 ;
-; KEY_N_0    ; VGA_B[1]    ; 8.000 ;    ;    ; 10.484 ;
-; KEY_N_0    ; VGA_B[2]    ; 8.000 ;    ;    ; 10.500 ;
-; KEY_N_0    ; VGA_B[3]    ; 8.016 ;    ;    ; 10.546 ;
-; KEY_N_0    ; VGA_B[4]    ; 8.130 ;    ;    ; 10.677 ;
-; KEY_N_0    ; VGA_B[5]    ; 7.889 ;    ;    ; 10.379 ;
-; KEY_N_0    ; VGA_B[6]    ; 7.967 ;    ;    ; 10.478 ;
-; KEY_N_0    ; VGA_B[7]    ; 7.969 ;    ;    ; 10.484 ;
-; KEY_N_0    ; VGA_G[0]    ; 8.291 ;    ;    ; 10.856 ;
-; KEY_N_0    ; VGA_G[1]    ; 8.282 ;    ;    ; 10.860 ;
-; KEY_N_0    ; VGA_G[2]    ; 8.159 ;    ;    ; 10.702 ;
-; KEY_N_0    ; VGA_G[3]    ; 8.270 ;    ;    ; 10.845 ;
-; KEY_N_0    ; VGA_G[4]    ; 8.263 ;    ;    ; 10.820 ;
-; KEY_N_0    ; VGA_G[5]    ; 8.252 ;    ;    ; 10.821 ;
-; KEY_N_0    ; VGA_G[6]    ; 8.148 ;    ;    ; 10.702 ;
-; KEY_N_0    ; VGA_G[7]    ; 8.154 ;    ;    ; 10.694 ;
-; KEY_N_0    ; VGA_R[0]    ; 7.832 ;    ;    ; 10.265 ;
-; KEY_N_0    ; VGA_R[1]    ; 7.781 ;    ;    ; 10.214 ;
-; KEY_N_0    ; VGA_R[2]    ; 8.059 ;    ;    ; 10.526 ;
-; KEY_N_0    ; VGA_R[3]    ; 7.867 ;    ;    ; 10.317 ;
-; KEY_N_0    ; VGA_R[4]    ; 7.892 ;    ;    ; 10.354 ;
-; KEY_N_0    ; VGA_R[5]    ; 7.924 ;    ;    ; 10.359 ;
-; KEY_N_0    ; VGA_R[6]    ; 7.912 ;    ;    ; 10.360 ;
-; KEY_N_0    ; VGA_R[7]    ; 8.044 ;    ;    ; 10.523 ;
-; KEY_N_1    ; LEDR[1]     ; 4.119 ;    ;    ; 5.213  ;
-; KEY_N_2    ; LEDR[2]     ; 4.323 ;    ;    ; 5.443  ;
-; KEY_N_3    ; LEDR[3]     ; 4.515 ;    ;    ; 5.866  ;
+; KEY_N_0    ; LEDR[0]     ; 4.255 ;    ;    ; 5.354  ;
+; KEY_N_0    ; VGA_B[0]    ; 9.547 ;    ;    ; 12.682 ;
+; KEY_N_0    ; VGA_B[1]    ; 9.793 ;    ;    ; 13.017 ;
+; KEY_N_0    ; VGA_B[2]    ; 9.787 ;    ;    ; 12.988 ;
+; KEY_N_0    ; VGA_B[3]    ; 9.475 ;    ;    ; 12.578 ;
+; KEY_N_0    ; VGA_B[4]    ; 9.745 ;    ;    ; 12.963 ;
+; KEY_N_0    ; VGA_B[5]    ; 9.464 ;    ;    ; 12.579 ;
+; KEY_N_0    ; VGA_B[6]    ; 9.494 ;    ;    ; 12.611 ;
+; KEY_N_0    ; VGA_B[7]    ; 9.617 ;    ;    ; 12.780 ;
+; KEY_N_0    ; VGA_G[0]    ; 9.981 ;    ;    ; 13.193 ;
+; KEY_N_0    ; VGA_G[1]    ; 9.972 ;    ;    ; 13.198 ;
+; KEY_N_0    ; VGA_G[2]    ; 9.753 ;    ;    ; 12.944 ;
+; KEY_N_0    ; VGA_G[3]    ; 9.867 ;    ;    ; 13.093 ;
+; KEY_N_0    ; VGA_G[4]    ; 9.936 ;    ;    ; 13.171 ;
+; KEY_N_0    ; VGA_G[5]    ; 9.908 ;    ;    ; 13.151 ;
+; KEY_N_0    ; VGA_G[6]    ; 9.840 ;    ;    ; 13.095 ;
+; KEY_N_0    ; VGA_G[7]    ; 9.862 ;    ;    ; 13.101 ;
+; KEY_N_0    ; VGA_R[0]    ; 9.678 ;    ;    ; 12.890 ;
+; KEY_N_0    ; VGA_R[1]    ; 9.627 ;    ;    ; 12.838 ;
+; KEY_N_0    ; VGA_R[2]    ; 9.687 ;    ;    ; 12.809 ;
+; KEY_N_0    ; VGA_R[3]    ; 9.603 ;    ;    ; 12.789 ;
+; KEY_N_0    ; VGA_R[4]    ; 9.576 ;    ;    ; 12.733 ;
+; KEY_N_0    ; VGA_R[5]    ; 9.794 ;    ;    ; 13.003 ;
+; KEY_N_0    ; VGA_R[6]    ; 9.686 ;    ;    ; 12.870 ;
+; KEY_N_0    ; VGA_R[7]    ; 9.679 ;    ;    ; 12.863 ;
+; KEY_N_1    ; LEDR[1]     ; 4.243 ;    ;    ; 5.382  ;
+; KEY_N_2    ; LEDR[2]     ; 4.380 ;    ;    ; 5.543  ;
+; KEY_N_3    ; LEDR[3]     ; 4.514 ;    ;    ; 5.860  ;
 +------------+-------------+-------+----+----+--------+
 
 
@@ -1337,9 +1337,9 @@ No synchronizer chains to report.
 ; VGA_B[7]    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[0]     ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[1]     ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
-; VGA_CLK     ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[2]     ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[3]     ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; VGA_CLK     ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; VGA_BLANK_N ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; VGA_SYNC_N  ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 +-------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
@@ -1391,9 +1391,9 @@ No synchronizer chains to report.
 ; VGA_B[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[0]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[1]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
-; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 ; LEDR[2]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[3]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
+; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 ; VGA_BLANK_N ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
 ; VGA_SYNC_N  ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 +-------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -1432,9 +1432,9 @@ No synchronizer chains to report.
 ; VGA_B[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
 ; LEDR[0]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
 ; LEDR[1]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
-; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[2]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
 ; LEDR[3]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
+; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
 ; VGA_BLANK_N ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
 ; VGA_SYNC_N  ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
 +-------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -1473,9 +1473,9 @@ No synchronizer chains to report.
 ; VGA_B[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 ; LEDR[0]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[1]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
-; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[2]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[3]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
+; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
 ; VGA_BLANK_N ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
 ; VGA_SYNC_N  ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
 +-------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -1514,9 +1514,9 @@ No synchronizer chains to report.
 ; VGA_B[7]    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[0]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[1]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
-; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[2]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
 ; LEDR[3]     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
+; VGA_CLK     ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
 ; VGA_BLANK_N ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
 ; VGA_SYNC_N  ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
 +-------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
@@ -1531,7 +1531,7 @@ No synchronizer chains to report.
 ; clock_divider:d1|clk         ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0            ;
 ; clock_divider:d2|clk         ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0            ;
 ; clock_divider_negedge:d3|clk ; CLOCK_50                     ; 0        ; 0        ; 1        ; 1            ;
-; clock_divider:d1|clk         ; clock_divider:d1|clk         ; 0        ; 0        ; 0        ; 2616         ;
+; clock_divider:d1|clk         ; clock_divider:d1|clk         ; 0        ; 0        ; 0        ; 2638         ;
 ; clock_divider:d2|clk         ; clock_divider:d1|clk         ; 0        ; 0        ; 0        ; 96           ;
 ; clock_divider:d1|clk         ; clock_divider:d2|clk         ; 0        ; 0        ; 0        ; 548          ;
 ; clock_divider:d2|clk         ; clock_divider:d2|clk         ; 0        ; 0        ; 0        ; 6803         ;
@@ -1549,7 +1549,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; clock_divider:d1|clk         ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0            ;
 ; clock_divider:d2|clk         ; CLOCK_50                     ; 1        ; 1        ; 0        ; 0            ;
 ; clock_divider_negedge:d3|clk ; CLOCK_50                     ; 0        ; 0        ; 1        ; 1            ;
-; clock_divider:d1|clk         ; clock_divider:d1|clk         ; 0        ; 0        ; 0        ; 2616         ;
+; clock_divider:d1|clk         ; clock_divider:d1|clk         ; 0        ; 0        ; 0        ; 2638         ;
 ; clock_divider:d2|clk         ; clock_divider:d1|clk         ; 0        ; 0        ; 0        ; 96           ;
 ; clock_divider:d1|clk         ; clock_divider:d2|clk         ; 0        ; 0        ; 0        ; 548          ;
 ; clock_divider:d2|clk         ; clock_divider:d2|clk         ; 0        ; 0        ; 0        ; 6803         ;
@@ -1578,7 +1578,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 3172  ; 3172 ;
+; Unconstrained Input Port Paths  ; 3556  ; 3556 ;
 ; Unconstrained Output Ports      ; 31    ; 31   ;
 ; Unconstrained Output Port Paths ; 127   ; 127  ;
 +---------------------------------+-------+------+
@@ -1590,7 +1590,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon Jun 19 11:50:06 2023
+    Info: Processing started: Wed Jun 21 13:16:00 2023
 Info: Command: quartus_sta TicTacToe -c top
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1609,29 +1609,29 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -35.772
+Info (332146): Worst-case setup slack is -44.799
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -35.772          -22456.465 clock_divider_negedge:d3|clk 
-    Info (332119):    -5.105           -2174.307 clock_divider:d2|clk 
-    Info (332119):    -5.102            -569.841 clock_divider:d1|clk 
-    Info (332119):    -1.718             -16.175 CLOCK_50 
-Info (332146): Worst-case hold slack is -1.470
+    Info (332119):   -44.799          -32278.046 clock_divider_negedge:d3|clk 
+    Info (332119):    -5.371           -2358.841 clock_divider:d2|clk 
+    Info (332119):    -5.284            -535.338 clock_divider:d1|clk 
+    Info (332119):    -1.516             -15.192 CLOCK_50 
+Info (332146): Worst-case hold slack is -1.809
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.470              -4.307 CLOCK_50 
-    Info (332119):    -0.813             -67.364 clock_divider:d1|clk 
-    Info (332119):    -0.577             -76.923 clock_divider:d2|clk 
-    Info (332119):     0.214               0.000 clock_divider_negedge:d3|clk 
+    Info (332119):    -1.809              -4.821 CLOCK_50 
+    Info (332119):    -1.021             -66.376 clock_divider:d1|clk 
+    Info (332119):    -0.695             -72.883 clock_divider:d2|clk 
+    Info (332119):     0.213               0.000 clock_divider_negedge:d3|clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174           -2159.740 clock_divider:d2|clk 
-    Info (332119):    -2.174            -537.743 clock_divider_negedge:d3|clk 
-    Info (332119):    -0.832             -11.876 CLOCK_50 
-    Info (332119):    -0.394             -80.548 clock_divider:d1|clk 
+    Info (332119):    -2.174           -2141.779 clock_divider:d2|clk 
+    Info (332119):    -2.174            -611.907 clock_divider_negedge:d3|clk 
+    Info (332119):    -0.868             -12.032 CLOCK_50 
+    Info (332119):    -0.394             -74.142 clock_divider:d1|clk 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 5CSEMA5F31C6 are preliminary
@@ -1639,29 +1639,29 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -36.279
+Info (332146): Worst-case setup slack is -46.017
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -36.279          -22803.863 clock_divider_negedge:d3|clk 
-    Info (332119):    -5.103            -570.985 clock_divider:d1|clk 
-    Info (332119):    -4.993           -2114.768 clock_divider:d2|clk 
-    Info (332119):    -1.826             -16.494 CLOCK_50 
-Info (332146): Worst-case hold slack is -1.367
+    Info (332119):   -46.017          -33087.168 clock_divider_negedge:d3|clk 
+    Info (332119):    -5.308            -536.365 clock_divider:d1|clk 
+    Info (332119):    -5.237           -2305.702 clock_divider:d2|clk 
+    Info (332119):    -1.611             -15.563 CLOCK_50 
+Info (332146): Worst-case hold slack is -1.648
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.367              -3.991 CLOCK_50 
-    Info (332119):    -0.664             -49.901 clock_divider:d1|clk 
-    Info (332119):    -0.529             -91.503 clock_divider:d2|clk 
-    Info (332119):     0.277               0.000 clock_divider_negedge:d3|clk 
+    Info (332119):    -1.648              -4.607 CLOCK_50 
+    Info (332119):    -0.831             -49.714 clock_divider:d1|clk 
+    Info (332119):    -0.604             -88.664 clock_divider:d2|clk 
+    Info (332119):     0.275               0.000 clock_divider_negedge:d3|clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174           -2153.750 clock_divider:d2|clk 
-    Info (332119):    -2.174            -529.992 clock_divider_negedge:d3|clk 
-    Info (332119):    -0.867             -11.032 CLOCK_50 
-    Info (332119):    -0.394             -76.325 clock_divider:d1|clk 
+    Info (332119):    -2.174           -2143.748 clock_divider:d2|clk 
+    Info (332119):    -2.174            -678.409 clock_divider_negedge:d3|clk 
+    Info (332119):    -0.895             -11.098 CLOCK_50 
+    Info (332119):    -0.394             -74.154 clock_divider:d1|clk 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 5CSEMA5F31C6 are preliminary
@@ -1669,62 +1669,62 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -19.851
+Info (332146): Worst-case setup slack is -23.488
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -19.851          -12644.710 clock_divider_negedge:d3|clk 
-    Info (332119):    -2.719            -289.093 clock_divider:d1|clk 
-    Info (332119):    -2.705           -1113.689 clock_divider:d2|clk 
-    Info (332119):    -0.566              -4.677 CLOCK_50 
-Info (332146): Worst-case hold slack is -0.991
+    Info (332119):   -23.488          -17603.133 clock_divider_negedge:d3|clk 
+    Info (332119):    -2.877            -265.696 clock_divider:d1|clk 
+    Info (332119):    -2.772           -1232.149 clock_divider:d2|clk 
+    Info (332119):    -0.454              -4.250 CLOCK_50 
+Info (332146): Worst-case hold slack is -1.422
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.991              -2.308 CLOCK_50 
-    Info (332119):    -0.413             -31.606 clock_divider:d1|clk 
-    Info (332119):    -0.317             -32.106 clock_divider:d2|clk 
+    Info (332119):    -1.422              -2.929 CLOCK_50 
+    Info (332119):    -0.495             -27.686 clock_divider:d1|clk 
+    Info (332119):    -0.425             -32.222 clock_divider:d2|clk 
     Info (332119):     0.138               0.000 clock_divider_negedge:d3|clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174           -2159.281 clock_divider:d2|clk 
-    Info (332119):    -2.174             -56.356 clock_divider_negedge:d3|clk 
-    Info (332119):    -0.868              -9.669 CLOCK_50 
-    Info (332119):     0.038               0.000 clock_divider:d1|clk 
+    Info (332119):    -2.174           -2143.649 clock_divider:d2|clk 
+    Info (332119):    -2.174             -55.852 clock_divider_negedge:d3|clk 
+    Info (332119):    -0.894              -9.739 CLOCK_50 
+    Info (332119):     0.030               0.000 clock_divider:d1|clk 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -18.468
+Info (332146): Worst-case setup slack is -22.033
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -18.468          -11780.695 clock_divider_negedge:d3|clk 
-    Info (332119):    -2.597            -273.495 clock_divider:d1|clk 
-    Info (332119):    -2.505           -1019.111 clock_divider:d2|clk 
-    Info (332119):    -0.539              -3.856 CLOCK_50 
-Info (332146): Worst-case hold slack is -1.020
+    Info (332119):   -22.033          -16449.923 clock_divider_negedge:d3|clk 
+    Info (332119):    -2.777            -253.752 clock_divider:d1|clk 
+    Info (332119):    -2.533           -1127.243 clock_divider:d2|clk 
+    Info (332119):    -0.407              -3.400 CLOCK_50 
+Info (332146): Worst-case hold slack is -1.428
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.020              -2.302 CLOCK_50 
-    Info (332119):    -0.416             -31.624 clock_divider:d1|clk 
-    Info (332119):    -0.374             -54.258 clock_divider:d2|clk 
-    Info (332119):     0.142               0.000 clock_divider_negedge:d3|clk 
+    Info (332119):    -1.428              -2.977 CLOCK_50 
+    Info (332119):    -0.491             -26.603 clock_divider:d1|clk 
+    Info (332119):    -0.453             -57.370 clock_divider:d2|clk 
+    Info (332119):     0.143               0.000 clock_divider_negedge:d3|clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.174           -2151.612 clock_divider:d2|clk 
-    Info (332119):    -2.174             -56.136 clock_divider_negedge:d3|clk 
-    Info (332119):    -0.901             -11.255 CLOCK_50 
-    Info (332119):     0.033               0.000 clock_divider:d1|clk 
+    Info (332119):    -2.174           -2144.284 clock_divider:d2|clk 
+    Info (332119):    -2.174             -55.830 clock_divider_negedge:d3|clk 
+    Info (332119):    -0.926             -11.317 CLOCK_50 
+    Info (332119):     0.032               0.000 clock_divider:d1|clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 5250 megabytes
-    Info: Processing ended: Mon Jun 19 11:51:59 2023
-    Info: Elapsed time: 00:01:53
-    Info: Total CPU time (on all processors): 00:01:46
+    Info: Peak virtual memory: 5349 megabytes
+    Info: Processing ended: Wed Jun 21 13:18:39 2023
+    Info: Elapsed time: 00:02:39
+    Info: Total CPU time (on all processors): 00:02:11
 
 

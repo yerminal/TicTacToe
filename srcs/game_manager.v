@@ -65,7 +65,7 @@ localparam S_GAME_LOGIC=0;
 localparam S_WRITE_DATA=1;
 localparam S_RAM_RESET=2;
 
-localparam QUEUE_SIZE = 27;
+localparam QUEUE_SIZE = 35;
 reg [(RAM_DATA_WIDTH-1):0] data[QUEUE_SIZE-1:0];
 reg [(RAM_ADDR_WIDTH-1):0] write_addr[QUEUE_SIZE-1:0];
 reg [6:0] i;
@@ -154,7 +154,23 @@ TEXT_CIRC_WON_MSG_4  = 84,
 TEXT_CIRC_WON_MSG_5  = 85,
 TEXT_CIRC_WON_MSG_6  = 86,
 TEXT_CIRC_WON_MSG_7  = 87,
-TEXT_CIRC_WON_MSG_8  = 88;
+TEXT_CIRC_WON_MSG_8  = 88,
+TURN_EMPTY_TRI_LU 	= 33,
+TURN_EMPTY_TRI_RU 	= 34,
+TURN_EMPTY_TRI_LD 	= 35,
+TURN_EMPTY_TRI_RD 	= 36,
+TURN_FILLED_TRI_LU 	= 37,
+TURN_FILLED_TRI_RU 	= 38,
+TURN_FILLED_TRI_LD 	= 39,
+TURN_FILLED_TRI_RD 	= 40,
+TURN_EMPTY_CIRC_LU 	= 41,
+TURN_EMPTY_CIRC_RU 	= 42,
+TURN_EMPTY_CIRC_LD 	= 43,
+TURN_EMPTY_CIRC_RD 	= 44,
+TURN_FILLED_CIRC_LU 	= 45,
+TURN_FILLED_CIRC_RU 	= 46,
+TURN_FILLED_CIRC_LD 	= 47,
+TURN_FILLED_CIRC_RD 	= 48;
 
 countTime
 #(	.CLK_INPUT_FREQ(CLK_FREQ),
@@ -201,7 +217,8 @@ begin
 			
 			isValidCounter=isValidCounter+1;
 			
-		end else if(oneButton<lastOneButton&&isFinished==0) begin //if one button is pressed
+		end 
+		else if(oneButton<lastOneButton&&isFinished==0) begin //if one button is pressed
 			if(isValidCounter<4)
 				userAdressLine[isValidCounter]=1;
 			else
@@ -209,8 +226,10 @@ begin
 			
 			isValidCounter=isValidCounter+1;
 			
-		end else if(activityButton<lastActivityButton) begin //if the activity button is pressed (we need to locate the triangle or the circle)
+		end 
+		else if(activityButton<lastActivityButton) begin //if the activity button is pressed (we need to locate the triangle or the circle)
 			if(isValidCounter==8&& userAdressColumn<10 && userAdressLine<10 &&boardTriangle[10*userAdressLine+userAdressColumn]==0&&boardCircle[10*userAdressLine+userAdressColumn]==0 && boardSquare[10*userAdressLine+userAdressColumn]==0&&isFinished==0) begin
+				STATE=S_WRITE_DATA;
 				if(whosTurn==0) begin
 					myIndex=10*userAdressLine+userAdressColumn;
 					boardTriangle[10*userAdressLine+userAdressColumn]=1; //locate the triangle if whosTurn variable is 0
@@ -223,7 +242,6 @@ begin
 					write_addr[i]=239;
 					data[i]=userAdressColumn+99;
 					i=i+1;
-					STATE=S_WRITE_DATA;
 
 					whosTurn=~whosTurn;
 					isValidCounter=0; //make zero for the next turn
@@ -243,21 +261,16 @@ begin
 					if(turnNumber==11||turnNumber==12) begin
 						boardSquare[firstSquareTriangle]=1;
 						boardTriangle[firstSquareTriangle]=0;
-						
 						write_addr[i]=20*(firstSquareTriangle/10)+25+(firstSquareTriangle%10);
 						data[i]=BOARD_REDFIL;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 					end 
 					else if(turnNumber==23||turnNumber==24) begin
 						boardSquare[secondSquareTriangle]=1;
 						boardTriangle[secondSquareTriangle]=0;
-						
-						
-						write_addr[i]=20*(firstSquareTriangle/10)+25+(firstSquareTriangle%10);
+						write_addr[i]=20*(secondSquareTriangle/10)+25+(secondSquareTriangle%10);
 						data[i]=BOARD_REDFIL;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 					end
 					
 					turnNumber=turnNumber+1;
@@ -268,7 +281,7 @@ begin
 					data[i]=activityTriangle/10+89;
 					write_addr[i]=224;
 					i=i+1;
-					STATE=S_WRITE_DATA;
+
 					//control if the triangle player wins after her/his activity	
 					if(myIndex+33<100 && boardTriangle[myIndex+11]==1 && boardTriangle[myIndex+22]==1 &&boardTriangle[myIndex+33]==1) begin
 						isFinished=1;
@@ -280,7 +293,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex+11)/10)+25+((myIndex+11)%10);
 						data[i]=BOARD_TRIANG135;
@@ -295,7 +307,8 @@ begin
 						data[i]=BOARD_TRIANG135;
 						i=i+1;
 						
-					end else if(myIndex>32 && boardTriangle[myIndex-11]==1 && boardTriangle[myIndex-22]==1 &&boardTriangle[myIndex-33]==1) begin
+					end 
+					else if(myIndex>32 && boardTriangle[myIndex-11]==1 && boardTriangle[myIndex-22]==1 &&boardTriangle[myIndex-33]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -305,7 +318,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG135;
@@ -320,7 +332,8 @@ begin
 						data[i]=BOARD_TRIANG135;
 						i=i+1;
 						
-					end else if(myIndex>26 &&boardTriangle[myIndex-9]==1 && boardTriangle[myIndex-18]==1 &&boardTriangle[myIndex-27]==1) begin
+					end 
+					else if(myIndex>26 &&boardTriangle[myIndex-9]==1 && boardTriangle[myIndex-18]==1 &&boardTriangle[myIndex-27]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -330,7 +343,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG45;
@@ -345,7 +357,8 @@ begin
 						data[i]=BOARD_TRIANG45;
 						i=i+1;
 						
-					end else if(myIndex+27<100 && boardTriangle[myIndex+9]==1 && boardTriangle[myIndex+18]==1 &&boardTriangle[myIndex+27]==1) begin
+					end 
+					else if(myIndex+27<100 && boardTriangle[myIndex+9]==1 && boardTriangle[myIndex+18]==1 &&boardTriangle[myIndex+27]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -355,7 +368,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG45;
@@ -370,7 +382,8 @@ begin
 						data[i]=BOARD_TRIANG45;
 						i=i+1;
 						
-					end else if(myIndex>2 && boardTriangle[myIndex-1]==1 && boardTriangle[myIndex-2]==1 &&boardTriangle[myIndex-3]==1) begin
+					end 
+					else if(myIndex>2 && boardTriangle[myIndex-1]==1 && boardTriangle[myIndex-2]==1 &&boardTriangle[myIndex-3]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -380,7 +393,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG180;
@@ -395,7 +407,8 @@ begin
 						data[i]=BOARD_TRIANG180;
 						i=i+1;
 						
-					end else if(myIndex+3<100 && boardTriangle[myIndex+1]==1 && boardTriangle[myIndex+2]==1 &&boardTriangle[myIndex+3]==1) begin
+					end 
+					else if(myIndex+3<100 && boardTriangle[myIndex+1]==1 && boardTriangle[myIndex+2]==1 &&boardTriangle[myIndex+3]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -405,7 +418,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG180;
@@ -420,7 +432,8 @@ begin
 						data[i]=BOARD_TRIANG180;
 						i=i+1;
 						
-					end else if(myIndex>29 && boardTriangle[myIndex-10]==1 && boardTriangle[myIndex-20]==1 &&boardTriangle[myIndex-30]==1) begin
+					end 
+					else if(myIndex>29 && boardTriangle[myIndex-10]==1 && boardTriangle[myIndex-20]==1 &&boardTriangle[myIndex-30]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -430,7 +443,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG90;
@@ -445,7 +457,8 @@ begin
 						data[i]=BOARD_TRIANG90;
 						i=i+1;
 						
-					end else if(myIndex+30<100 && boardTriangle[myIndex+10]==1 && boardTriangle[myIndex+20]==1 &&boardTriangle[myIndex+30]==1) begin
+					end 
+					else if(myIndex+30<100 && boardTriangle[myIndex+10]==1 && boardTriangle[myIndex+20]==1 &&boardTriangle[myIndex+30]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -455,7 +468,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG90;
@@ -470,7 +482,8 @@ begin
 						data[i]=BOARD_TRIANG90;
 						i=i+1;
 						
-					end else if(myIndex+22<100 && myIndex>10 && boardTriangle[myIndex-11]==1 && boardTriangle[myIndex+11]==1 &&boardTriangle[myIndex+22]==1) begin
+					end 
+					else if(myIndex+22<100 && myIndex>10 && boardTriangle[myIndex-11]==1 && boardTriangle[myIndex+11]==1 &&boardTriangle[myIndex+22]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -480,7 +493,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG135;
@@ -495,7 +507,8 @@ begin
 						data[i]=BOARD_TRIANG135;
 						i=i+1;
 						
-					end else if(myIndex+27<100 && myIndex>8 && boardTriangle[myIndex-9]==1 && boardTriangle[myIndex+9]==1 &&boardTriangle[myIndex+18]==1) begin
+					end 
+					else if(myIndex+27<100 && myIndex>8 && boardTriangle[myIndex-9]==1 && boardTriangle[myIndex+9]==1 &&boardTriangle[myIndex+18]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -505,7 +518,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG45;
@@ -520,7 +532,8 @@ begin
 						data[i]=BOARD_TRIANG45;
 						i=i+1;
 						
-					end else if(myIndex+9<100 && myIndex>17 && boardTriangle[myIndex-9]==1 && boardTriangle[myIndex-18]==1 &&boardTriangle[myIndex+9]==1) begin
+					end 
+					else if(myIndex+9<100 && myIndex>17 && boardTriangle[myIndex-9]==1 && boardTriangle[myIndex-18]==1 &&boardTriangle[myIndex+9]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -530,7 +543,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG45;
@@ -545,7 +557,8 @@ begin
 						data[i]=BOARD_TRIANG45;
 						i=i+1;
 						
-					end else if(myIndex+11<100 && myIndex>21 && boardTriangle[myIndex-11]==1 && boardTriangle[myIndex-22]==1 &&boardTriangle[myIndex+11]==1) begin
+					end 
+					else if(myIndex+11<100 && myIndex>21 && boardTriangle[myIndex-11]==1 && boardTriangle[myIndex-22]==1 &&boardTriangle[myIndex+11]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -555,7 +568,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG135;
@@ -570,7 +582,8 @@ begin
 						data[i]=BOARD_TRIANG135;
 						i=i+1;
 						
-					end else if(myIndex+2<100 && myIndex>0 && boardTriangle[myIndex-1]==1 && boardTriangle[myIndex+1]==1 &&boardTriangle[myIndex+2]==1) begin
+					end 
+					else if(myIndex+2<100 && myIndex>0 && boardTriangle[myIndex-1]==1 && boardTriangle[myIndex+1]==1 &&boardTriangle[myIndex+2]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -580,7 +593,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG180;
@@ -595,7 +607,8 @@ begin
 						data[i]=BOARD_TRIANG180;
 						i=i+1;
 						
-					end else if(myIndex+1<100 && myIndex>1 && boardTriangle[myIndex-2]==1 && boardTriangle[myIndex-1]==1 &&boardTriangle[myIndex+1]==1) begin
+					end 
+					else if(myIndex+1<100 && myIndex>1 && boardTriangle[myIndex-2]==1 && boardTriangle[myIndex-1]==1 &&boardTriangle[myIndex+1]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -605,7 +618,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG180;
@@ -620,7 +632,8 @@ begin
 						data[i]=BOARD_TRIANG180;
 						i=i+1;
 						
-					end else if(myIndex+10<100 && myIndex>19 && boardTriangle[myIndex-10]==1 && boardTriangle[myIndex-20]==1 &&boardTriangle[myIndex+10]==1) begin
+					end 
+					else if(myIndex+10<100 && myIndex>19 && boardTriangle[myIndex-10]==1 && boardTriangle[myIndex-20]==1 &&boardTriangle[myIndex+10]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -630,7 +643,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG90;
@@ -645,7 +657,8 @@ begin
 						data[i]=BOARD_TRIANG90;
 						i=i+1;
 						
-					end else if(myIndex+20<100 && myIndex>9 && boardTriangle[myIndex-10]==1 && boardTriangle[myIndex+10]==1 &&boardTriangle[myIndex+20]==1) begin
+					end 
+					else if(myIndex+20<100 && myIndex>9 && boardTriangle[myIndex-10]==1 && boardTriangle[myIndex+10]==1 &&boardTriangle[myIndex+20]==1) begin
 						isFinished=1;
 						lastWinner=0;
 						triangleWins=triangleWins+1;
@@ -655,7 +668,6 @@ begin
 						data[i]=triangleWins/10+89;
 						write_addr[i]=229;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_TRIANG90;
@@ -670,10 +682,41 @@ begin
 						data[i]=BOARD_TRIANG90;
 						i=i+1;
 						
-					end else if(turnNumber==26) begin
+					end 
+					else if(turnNumber==26) begin
 						isFinished=1;
 						draws=draws+1;
 						isDraw=1;
+					end
+					
+					// DETERMINING TURN VGA
+					if(isFinished==0 || (isDraw==1 && lastWinner==1)) begin
+						//TURN CHANGE TO CIRCLE VGA
+						data[i]=TURN_EMPTY_TRI_LU;
+						write_addr[i]=81;
+						i=i+1;
+						data[i]=TURN_EMPTY_TRI_RU;
+						write_addr[i]=82;
+						i=i+1;
+						data[i]=TURN_EMPTY_TRI_LD;
+						write_addr[i]=101;
+						i=i+1;
+						data[i]=TURN_EMPTY_TRI_RD;
+						write_addr[i]=102;
+						i=i+1;
+						
+						data[i]=TURN_FILLED_CIRC_LU;
+						write_addr[i]=96;
+						i=i+1;
+						data[i]=TURN_FILLED_CIRC_RU;
+						write_addr[i]=97;
+						i=i+1;
+						data[i]=TURN_FILLED_CIRC_LD;
+						write_addr[i]=116;
+						i=i+1;
+						data[i]=TURN_FILLED_CIRC_RD;
+						write_addr[i]=117;
+						i=i+1;
 					end
 				end
 				else begin
@@ -689,7 +732,6 @@ begin
 					write_addr[i]=259;
 					data[i]=userAdressColumn+99;
 					i=i+1;
-					STATE=S_WRITE_DATA;
 
 					whosTurn=~whosTurn;
 					isValidCounter=0;
@@ -712,15 +754,13 @@ begin
 						write_addr[i]=20*(firstSquareCircle/10)+25+(firstSquareCircle%10);
 						data[i]=BOARD_REDFIL;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 					end
 					else if(turnNumber==23||turnNumber==24) begin
 						boardSquare[secondSquareCircle]=1;
 						boardCircle[secondSquareCircle]=0;
-						write_addr[i]=20*(firstSquareCircle/10)+25+(firstSquareCircle%10);
+						write_addr[i]=20*(secondSquareCircle/10)+25+(secondSquareCircle%10);
 						data[i]=BOARD_REDFIL;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 					end
 					
 					turnNumber=turnNumber+1;
@@ -757,7 +797,8 @@ begin
 						data[i]=BOARD_CIRCLE135;
 						i=i+1;
 						
-					end else if(myIndex>32 && boardCircle[myIndex-11]==1 && boardCircle[myIndex-22]==1 &&boardCircle[myIndex-33]==1) begin
+					end 
+					else if(myIndex>32 && boardCircle[myIndex-11]==1 && boardCircle[myIndex-22]==1 &&boardCircle[myIndex-33]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -767,7 +808,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE135;
@@ -782,7 +822,8 @@ begin
 						data[i]=BOARD_CIRCLE135;
 						i=i+1;
 						
-					end else if(myIndex>26 &&boardCircle[myIndex-9]==1 && boardCircle[myIndex-18]==1 &&boardCircle[myIndex-27]==1) begin
+					end 
+					else if(myIndex>26 &&boardCircle[myIndex-9]==1 && boardCircle[myIndex-18]==1 &&boardCircle[myIndex-27]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -792,7 +833,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE45;
@@ -807,7 +847,8 @@ begin
 						data[i]=BOARD_CIRCLE45;
 						i=i+1;
 						
-					end else if(myIndex+27<100 && boardCircle[myIndex+9]==1 && boardCircle[myIndex+18]==1 &&boardCircle[myIndex+27]==1) begin
+					end 
+					else if(myIndex+27<100 && boardCircle[myIndex+9]==1 && boardCircle[myIndex+18]==1 &&boardCircle[myIndex+27]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -817,7 +858,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE45;
@@ -832,7 +872,8 @@ begin
 						data[i]=BOARD_CIRCLE45;
 						i=i+1;
 						
-					end else if(myIndex>2 && boardCircle[myIndex-1]==1 && boardCircle[myIndex-2]==1 &&boardCircle[myIndex-3]==1) begin
+					end 
+					else if(myIndex>2 && boardCircle[myIndex-1]==1 && boardCircle[myIndex-2]==1 &&boardCircle[myIndex-3]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -842,7 +883,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE180;
@@ -857,7 +897,8 @@ begin
 						data[i]=BOARD_CIRCLE180;
 						i=i+1;
 						
-					end else if(myIndex+3<100 && boardCircle[myIndex+1]==1 && boardCircle[myIndex+2]==1 &&boardCircle[myIndex+3]==1) begin
+					end 
+					else if(myIndex+3<100 && boardCircle[myIndex+1]==1 && boardCircle[myIndex+2]==1 &&boardCircle[myIndex+3]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -867,7 +908,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE180;
@@ -882,7 +922,8 @@ begin
 						data[i]=BOARD_CIRCLE180;
 						i=i+1;
 						
-					end else if(myIndex>29 && boardCircle[myIndex-10]==1 && boardCircle[myIndex-20]==1 &&boardCircle[myIndex-30]==1) begin
+					end 
+					else if(myIndex>29 && boardCircle[myIndex-10]==1 && boardCircle[myIndex-20]==1 &&boardCircle[myIndex-30]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -892,7 +933,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE90;
@@ -907,7 +947,8 @@ begin
 						data[i]=BOARD_CIRCLE90;
 						i=i+1;
 						
-					end else if(myIndex+30<100 && boardCircle[myIndex+10]==1 && boardCircle[myIndex+20]==1 &&boardCircle[myIndex+30]==1) begin
+					end 
+					else if(myIndex+30<100 && boardCircle[myIndex+10]==1 && boardCircle[myIndex+20]==1 &&boardCircle[myIndex+30]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -917,7 +958,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE90;
@@ -932,7 +972,8 @@ begin
 						data[i]=BOARD_CIRCLE90;
 						i=i+1;
 						
-					end else if(myIndex+22<100 && myIndex>10 && boardCircle[myIndex-11]==1 && boardCircle[myIndex+11]==1 &&boardCircle[myIndex+22]==1) begin
+					end 
+					else if(myIndex+22<100 && myIndex>10 && boardCircle[myIndex-11]==1 && boardCircle[myIndex+11]==1 &&boardCircle[myIndex+22]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -942,7 +983,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE135;
@@ -957,7 +997,8 @@ begin
 						data[i]=BOARD_CIRCLE135;
 						i=i+1;
 						
-					end else if(myIndex+27<100 && myIndex>8 && boardCircle[myIndex-9]==1 && boardCircle[myIndex+9]==1 &&boardCircle[myIndex+18]==1) begin
+					end 
+					else if(myIndex+27<100 && myIndex>8 && boardCircle[myIndex-9]==1 && boardCircle[myIndex+9]==1 &&boardCircle[myIndex+18]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -967,7 +1008,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE45;
@@ -982,7 +1022,8 @@ begin
 						data[i]=BOARD_CIRCLE45;
 						i=i+1;
 						
-					end else if(myIndex+9<100 && myIndex>17 && boardCircle[myIndex-9]==1 && boardCircle[myIndex-18]==1 &&boardCircle[myIndex+9]==1) begin
+					end 
+					else if(myIndex+9<100 && myIndex>17 && boardCircle[myIndex-9]==1 && boardCircle[myIndex-18]==1 &&boardCircle[myIndex+9]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -992,7 +1033,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE45;
@@ -1007,7 +1047,8 @@ begin
 						data[i]=BOARD_CIRCLE45;
 						i=i+1;
 						
-					end else if(myIndex+11<100 && myIndex>21 && boardCircle[myIndex-11]==1 && boardCircle[myIndex-22]==1 &&boardCircle[myIndex+11]==1) begin
+					end 
+					else if(myIndex+11<100 && myIndex>21 && boardCircle[myIndex-11]==1 && boardCircle[myIndex-22]==1 &&boardCircle[myIndex+11]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -1017,7 +1058,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE135;
@@ -1032,7 +1072,8 @@ begin
 						data[i]=BOARD_CIRCLE135;
 						i=i+1;
 						
-					end else if(myIndex+2<100 && myIndex>0 && boardCircle[myIndex-1]==1 && boardCircle[myIndex+1]==1 &&boardCircle[myIndex+2]==1) begin
+					end 
+					else if(myIndex+2<100 && myIndex>0 && boardCircle[myIndex-1]==1 && boardCircle[myIndex+1]==1 &&boardCircle[myIndex+2]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -1042,7 +1083,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE180;
@@ -1057,7 +1097,8 @@ begin
 						data[i]=BOARD_CIRCLE180;
 						i=i+1;
 						
-					end else if(myIndex+1<100 && myIndex>1 && boardCircle[myIndex-2]==1 && boardCircle[myIndex-1]==1 &&boardCircle[myIndex+1]==1) begin
+					end 
+					else if(myIndex+1<100 && myIndex>1 && boardCircle[myIndex-2]==1 && boardCircle[myIndex-1]==1 &&boardCircle[myIndex+1]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -1067,7 +1108,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE180;
@@ -1082,7 +1122,8 @@ begin
 						data[i]=BOARD_CIRCLE180;
 						i=i+1;
 						
-					end else if(myIndex+10<100 && myIndex>19 && boardCircle[myIndex-10]==1 && boardCircle[myIndex-20]==1 &&boardCircle[myIndex+10]==1) begin
+					end 
+					else if(myIndex+10<100 && myIndex>19 && boardCircle[myIndex-10]==1 && boardCircle[myIndex-20]==1 &&boardCircle[myIndex+10]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -1092,7 +1133,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE90;
@@ -1107,7 +1147,8 @@ begin
 						data[i]=BOARD_CIRCLE90;
 						i=i+1;
 						
-					end else if(myIndex+20<100 && myIndex>9 && boardCircle[myIndex-10]==1 && boardCircle[myIndex+10]==1 &&boardCircle[myIndex+20]==1) begin
+					end 
+					else if(myIndex+20<100 && myIndex>9 && boardCircle[myIndex-10]==1 && boardCircle[myIndex+10]==1 &&boardCircle[myIndex+20]==1) begin
 						isFinished=1;
 						lastWinner=1;
 						circleWins=circleWins+1;
@@ -1117,7 +1158,6 @@ begin
 						data[i]=circleWins/10+89;
 						write_addr[i]=249;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 						
 						write_addr[i]=20*((myIndex)/10)+25+((myIndex)%10);
 						data[i]=BOARD_CIRCLE90;
@@ -1132,23 +1172,53 @@ begin
 						data[i]=BOARD_CIRCLE90;
 						i=i+1;
 						
-					end else if(turnNumber==26) begin
+					end 
+					else if(turnNumber==26) begin
 						isFinished=1;
 						draws=draws+1;
 						isDraw=1;
 					end
+					
+					// DETERMINING TURN VGA
+					if(isFinished==0 || (isDraw==1 && lastWinner==0)) begin
+						//TURN CHANGE TO TRIANGLE VGA
+						data[i]=TURN_FILLED_TRI_LU;
+						write_addr[i]=81;
+						i=i+1;
+						data[i]=TURN_FILLED_TRI_RU;
+						write_addr[i]=82;
+						i=i+1;
+						data[i]=TURN_FILLED_TRI_LD;
+						write_addr[i]=101;
+						i=i+1;
+						data[i]=TURN_FILLED_TRI_RD;
+						write_addr[i]=102;
+						i=i+1;
+						
+						data[i]=TURN_EMPTY_CIRC_LU;
+						write_addr[i]=96;
+						i=i+1;
+						data[i]=TURN_EMPTY_CIRC_RU;
+						write_addr[i]=97;
+						i=i+1;
+						data[i]=TURN_EMPTY_CIRC_LD;
+						write_addr[i]=116;
+						i=i+1;
+						data[i]=TURN_EMPTY_CIRC_RD;
+						write_addr[i]=117;
+						i=i+1;
+					end
 				end
-			end else if(isValidCounter!=8 || userAdressColumn>9 || userAdressLine>9 || boardTriangle[10*userAdressLine+userAdressColumn]==1 || boardCircle[10*userAdressLine+userAdressColumn]==1 || boardSquare[10*userAdressLine+userAdressColumn]==1) begin
+			end
+			else if(isValidCounter!=8 || userAdressColumn>9 || userAdressLine>9 || boardTriangle[10*userAdressLine+userAdressColumn]==1 || boardCircle[10*userAdressLine+userAdressColumn]==1 || boardSquare[10*userAdressLine+userAdressColumn]==1) begin
 					isValidCounter=0;
 					userAdressLine=0;
 					userAdressColumn=0;
 			end
 		end
-
 		if(isFinished) begin
 				startCount=1;
 				if(countDone==1) begin
-					
 					startCount=0;
 					isFinished=0;
 					whosTurn=lastWinner;
@@ -1171,16 +1241,15 @@ begin
 					write_addr_o=0;
 					data_o=WINDW_EMPTY;
 					we_o = 1;
-					
 				end
 				else begin
-					if(lastWinner==0) begin
+					STATE=S_WRITE_DATA;
+					if(lastWinner==0 && isDraw==0) begin
 						for (j = 0; j < 9; j = j+1) begin 
 						data[i]=TEXT_TRI_WON_MSG_0+j;
 						write_addr[i]=290+j;
 						i=i+1;
 						end
-						STATE=S_WRITE_DATA;
 					end
 					else if(isDraw==1) begin
 						data[i]=102;
@@ -1195,7 +1264,6 @@ begin
 						data[i]=104;
 						write_addr[i]=293;
 						i=i+1;
-						STATE=S_WRITE_DATA;
 					end
 					else begin
 						for (j = 0; j < 9; j = j+1) begin 
@@ -1203,7 +1271,6 @@ begin
 						write_addr[i]=290+j;
 						i=i+1;
 						end
-						STATE=S_WRITE_DATA;
 					end
 				end
 		end

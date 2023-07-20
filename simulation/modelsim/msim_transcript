@@ -1,0 +1,81 @@
+# Reading C:/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# ERROR: No extended dataflow license exists
+# do top_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/top.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_sync.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module vga_sync
+# 
+# Top level modules:
+# 	vga_sync
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_rgb_mux.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module vga_rgb_mux
+# 
+# Top level modules:
+# 	vga_rgb_mux
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/tile_type_to_ROM_addr.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module tile_type_to_ROM_addr
+# 
+# Top level modules:
+# 	tile_type_to_ROM_addr
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/serial_data_converter.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module serial_data_converter
+# 
+# Top level modules:
+# 	serial_data_converter
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/pixel_drawer.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module pixel_drawer
+# 
+# Top level modules:
+# 	pixel_drawer
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/game_manager.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module countTime
+# -- Compiling module game_manager
+# 
+# Top level modules:
+# 	game_manager
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider_negedge.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module clock_divider_negedge
+# 
+# Top level modules:
+# 	clock_divider_negedge
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module clock_divider
+# 
+# Top level modules:
+# 	clock_divider
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/single_port_rom.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module single_port_rom
+# 
+# Top level modules:
+# 	single_port_rom
+# vlog -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs {C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/simple_dual_port_ram_dual_clock.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module simple_dual_port_ram_dual_clock
+# 
+# Top level modules:
+# 	simple_dual_port_ram_dual_clock
+# 

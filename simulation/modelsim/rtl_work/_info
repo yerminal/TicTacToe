@@ -1,0 +1,247 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\abdul\Documents\Quartus\FINAL_TERM\simulation\modelsim
+vclock_divider
+I`HhBaUc1?bHDebXO:7Xc^2
+VDi_@Nm?:`A?SS4^E1jZ?n0
+Z1 dC:\Users\abdul\Documents\Quartus\FINAL_TERM\simulation\modelsim
+w1686623825
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider.v
+L0 3
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs -O0
+!i10b 1
+!s100 UbSS80fA>_8aM>K0=gNbe2
+!s85 0
+!s108 1687280179.552000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider.v|
+!s101 -O0
+vclock_divider_negedge
+IAP_54zRc@Y;nRA6Vd:BWR0
+VHXK>o>3bM_hbElD1d:0<F0
+R1
+w1686894381
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider_negedge.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider_negedge.v
+L0 3
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 CO>6Ma;RmT^Gd7;1]D;k[3
+!s85 0
+!s108 1687280179.498000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider_negedge.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/clock_divider_negedge.v|
+!s101 -O0
+vcountTime
+Id64kg;]6aNa2nk7Se<K9S1
+V9Ph]?ZlniL=2Rj??OoCHe1
+R1
+Z5 w1687273529
+Z6 8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/game_manager.v
+Z7 FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/game_manager.v
+L0 3
+R2
+r1
+31
+Z8 !s108 1687280179.415000
+Z9 !s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/game_manager.v|
+Z10 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/game_manager.v|
+R3
+R4
+ncount@time
+!i10b 1
+!s100 mzX]M>Y3K7zfcMlgUch;@3
+!s85 0
+!s101 -O0
+vgame_manager
+I7HgR8R:?38i6DN:4YD]c43
+VnKV_nCSKgC<47ZcJ=:ALH2
+R1
+R5
+R6
+R7
+L0 39
+R2
+r1
+31
+R8
+R9
+R10
+R3
+R4
+!i10b 1
+!s100 bH@?R_`a^f@daQ]B=V`e31
+!s85 0
+!s101 -O0
+vpixel_drawer
+IG_I1bhFZIBW?VURFYAEHR0
+V>U>GM3]JO7]5aK;IbXJLd2
+R1
+w1686313127
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/pixel_drawer.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/pixel_drawer.v
+L0 3
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 dk=fE1`gled7cFgnC7?6J0
+!s85 0
+!s108 1687280179.351000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/pixel_drawer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/pixel_drawer.v|
+!s101 -O0
+vserial_data_converter
+IK:0NOTX1n5_Mde7m8ccg03
+VEc0`62U_2U77B`<=Bo;bY2
+R1
+w1686931686
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/serial_data_converter.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/serial_data_converter.v
+L0 3
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 2JYHjIJ5=@jbRECHdYU?T1
+!s85 0
+!s108 1687280179.295000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/serial_data_converter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/serial_data_converter.v|
+!s101 -O0
+vsimple_dual_port_ram_dual_clock
+!i10b 1
+!s100 G3NbR^PlzTZQ^LW=5Q59F3
+IoJWMUnVN>h?R46UdnP5n=0
+VB6GKeBc^0UAanXN6^omBU2
+R1
+w1687115736
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/simple_dual_port_ram_dual_clock.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/simple_dual_port_ram_dual_clock.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1687280179.666000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/simple_dual_port_ram_dual_clock.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/simple_dual_port_ram_dual_clock.v|
+!s101 -O0
+R3
+R4
+vsingle_port_rom
+IE4:o7jXLKm0NJ=a:Q??AN0
+Vf_WRk>]n4iaiYhJhlNVZO0
+R1
+w1687115740
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/single_port_rom.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/single_port_rom.v
+L0 4
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 PzR[]R;_>iaYiV6MUoE0O1
+!s85 0
+!s108 1687280179.607000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/single_port_rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/single_port_rom.v|
+!s101 -O0
+vtile_type_to_ROM_addr
+IFOGN9>]0VEbWI=?NM[DB00
+VJ4<TfEHhgQ[TSzPh95ddA2
+R1
+w1686213865
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/tile_type_to_ROM_addr.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/tile_type_to_ROM_addr.v
+L0 3
+R2
+r1
+31
+R3
+R4
+ntile_type_to_@r@o@m_addr
+!i10b 1
+!s100 k7iIbbPVKKLYzW1dJd3MJ1
+!s85 0
+!s108 1687280179.225000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/tile_type_to_ROM_addr.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/tile_type_to_ROM_addr.v|
+!s101 -O0
+vtop
+IfQCj88E;LK7]UL9P8n_Ye3
+Vc3;@Oj7SXZ5]8H1<9d_:E1
+R1
+w1687093660
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/top.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/top.v
+L0 3
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 l7bl79QgJB:d6dH>NJT:]1
+!s85 0
+!s108 1687280179.034000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/top.v|
+!s101 -O0
+vvga_rgb_mux
+I;j8oB^XT7RJ>_V`U9=z6R3
+V9mOHce_ed9l^O>zk]hzj80
+R1
+w1686625428
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_rgb_mux.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_rgb_mux.v
+L0 3
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 =1_dSV7WaeB0Bf48UTo::0
+!s85 0
+!s108 1687280179.172000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_rgb_mux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_rgb_mux.v|
+!s101 -O0
+vvga_sync
+IF63P_aKhc?=Ho?IHIEFAl2
+VaO_oRe[z2FRh1?Df6A9me1
+R1
+w1687093124
+8C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_sync.v
+FC:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_sync.v
+L0 2
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 F=;QTd1<oZLP;[?ROhae;1
+!s85 0
+!s108 1687280179.119000
+!s107 C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_sync.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs|C:/Users/abdul/Documents/Quartus/FINAL_TERM/srcs/vga_sync.v|
+!s101 -O0

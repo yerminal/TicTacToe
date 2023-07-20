@@ -1,2 +1,2 @@
 Warning (10268): Verilog HDL information at serial_data_converter.v(50): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at game_manager.v(191): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at game_manager.v(207): always construct contains both blocking and non-blocking assignments
