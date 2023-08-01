@@ -9,7 +9,7 @@ should press the activity button.
 - For example, the 5B coordinate corresponds to **1010 1000** instead of **0101 0001**.
 ### Example
 - The triangle player has the turn. If the player wants to place a shape to the 4C coordinate, the player should press the input buttons with the 0010 1100 order.
-- Notice that the order for entering a character is reversed so that the fpga reads 0100 0011.
+- Notice that the order for entering a character is reversed so that the FPGA reads 0100 0011.
 - After pressing the activity button, a triangle will be placed if the 4C box is empty. Now, the circle player does the same.
 ## Game Screen
 ![screen_example.png](https://github.com/yerminal/TicTacToe/blob/main/docs/screen_example.png)
